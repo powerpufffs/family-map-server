@@ -1,0 +1,40 @@
+SQL CREATE TABLE Statements
+
+CREATE TABLE users (
+    user_name TEXT NON NULL,
+    password TEXT NON NULL,
+    email TEXT NON NULL,
+    first_name TEXT NON NULL,
+    last_name TEXT,
+    gender TEXT,
+    personId TEXT NON NULL UNIQUE
+);
+
+CREATE TABLE persons (
+    person_id TEXT PRIMARY KEY,
+    associated_username TEXT NON NULL,
+    first_name TEXT NON NULL,
+    last_name TEXT NON NULL,
+    gender TEXT NON NULL,
+    father_id TEXT,
+    mother_id TEXT,
+    spouse_id TEXT
+);
+
+CREATE TABLE events (
+    event_id TEXT PRIMARY KEY,
+    associated_username TEXT NOT NULL,
+    person_id TEXT NOT NULL,
+    latitude NUMERIC,
+    longitude NUMERIC,
+    country TEXT NOT NULL,
+    city TEXT NOT NULL,
+    event_type TEXT NOT NULL,
+    year TEXT NOT NULL
+);
+
+CREATE TABLE authTokens (
+    token_id TEXT PRIMARY KEY,
+    person_id TEXT NON NULL,
+    username TEXT NON NULL
+);
