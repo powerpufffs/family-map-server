@@ -4,18 +4,18 @@ public class Event {
 
     private String eventId;
     private String associatedUsername;
-    private String personId;
-    private String latitude;
-    private String longitude;
+    private String personID;
+    private float latitude;
+    private float longitude;
     private String country;
     private String city;
     private String eventType;
-    private String year;
+    private int year;
 
-    public Event(String eventId, String associatedUsername, String personId, String latitude, String longitude, String country, String city, String eventType, String year) {
+    public Event(String eventId, String associatedUsername, String personID, float latitude, float longitude, String country, String city, String eventType, int year) {
         this.eventId = eventId;
         this.associatedUsername = associatedUsername;
-        this.personId = personId;
+        this.personID = personID;
         this.latitude = latitude;
         this.longitude = longitude;
         this.country = country;
@@ -32,15 +32,15 @@ public class Event {
         this.associatedUsername = associatedUsername;
     }
 
-    public void setPersonId(String personId) {
-        this.personId = personId;
+    public void setPersonId(String personID) {
+        this.personID = personID;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
@@ -56,7 +56,7 @@ public class Event {
         this.eventType = eventType;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
@@ -69,14 +69,14 @@ public class Event {
     }
 
     public String getPersonId() {
-        return personId;
+        return personID;
     }
 
-    public String getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public String getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
@@ -92,7 +92,21 @@ public class Event {
         return eventType;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
+    }
+
+    public Event clone() {
+        return new Event(
+            this.eventId,
+            this.associatedUsername,
+            null,
+            this.latitude,
+            this.longitude,
+            this.country,
+            this.city,
+            this.eventType,
+            this.year
+        );
     }
 }

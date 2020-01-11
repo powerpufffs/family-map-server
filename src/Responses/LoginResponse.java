@@ -1,53 +1,56 @@
 package Responses;
 
 import Helpers.FMSError;
+import Models.AuthToken;
 
-public class LoginResponse {
+/**
+ * The result of a request to the <code>/user/login</code> or
+ * <code>/user/register</code> endpoint. The outcome of an attempt to
+ * log a user into or register a new user with the server.
+ */
+public class LoginResponse extends FMSResponse {
 
-    private String authToken;
-    private String userName;
-    private String personId;
-    private FMSError error;
+    public static final String USER_ALREADY_EXISTS_ERROR = "Username already taken by another user";
+    public static final String INVALID_OR_MISSING_INPUT_ERROR = "Request property missing or has invalid value";
+    public static final String USER_DOESNT_EXIST_ERROR = "Internal server error";
+    public static final String GENERAL_LOGIN_FAILURE_ERROR = "Internal server error";
+    public static final String SUCCESSFUL_LOGIN_MESSAGE = "Login successful";
 
-    public LoginResponse(String authToken, String userName, String personId) {
-        this.authToken = authToken;
-        this.userName = userName;
-        this.personId = personId;
-    }
+    private AuthToken authToken;
 
+    /**
+     * Cretaes a new error LoginResult.
+     *
+     * @param error an FMSError ebject
+     */
     public LoginResponse(FMSError error) {
-        this.error = error;
+        super(null, error);
     }
 
-    public void setAuthToken(String authToken) {
+    /**
+     * Creates a new success LoginResult.
+     *
+     * @param authtoken an AuthToken object
+     */
+    public LoginResponse(String message, AuthToken authtoken) {
+        super(message, null);
+        this.authToken = authtoken;
+    }
+
+
+    /**
+     * @param authToken an AuthToken object with holds the authorization token
+     *                  and other information
+     */
+    public void setAuthToken(AuthToken authToken) {
         this.authToken = authToken;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setPersonId(String personId) {
-        this.personId = personId;
-    }
-
-    public void setError(FMSError error) {
-        this.error = error;
-    }
-
-    public String getAuthToken() {
+    /**
+     * @return an AuthToken object with holds the authorization token
+     *                  and other information
+     */
+    public AuthToken getAuthToken() {
         return authToken;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getPersonId() {
-        return personId;
-    }
-
-    public FMSError getError() {
-        return error;
     }
 }

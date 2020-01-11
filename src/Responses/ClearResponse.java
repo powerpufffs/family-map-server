@@ -2,22 +2,22 @@ package Responses;
 
 import Helpers.FMSError;
 
-public class ClearResponse {
+public class ClearResponse extends FMSResponse {
 
-    private String message;
-    private FMSError error;
+    public static final String CLEAR_SUCCESSFUL_MESSAGE = "Clear succeeded";
+    public static final String CLEAR_UNSUCCESSFUL_ERROR = "Clear database unsuccessful.";
 
+    /**
+     * @param error error sent when clearing was unsuccessful.
+     */
+    public ClearResponse(FMSError error) {
+        super(null, error);
+    }
+
+    /**
+     * @param message message sent when clearing was successful.
+     */
     public ClearResponse(String message) {
-        this.message = message;
+        super(message, null);
     }
-    public ClearResponse(FMSError error) { this.error = error; }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-    
 }

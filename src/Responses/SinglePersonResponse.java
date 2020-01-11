@@ -1,113 +1,84 @@
 package Responses;
 
 import Helpers.FMSError;
+import Models.Person;
 
-public class SinglePersonResponse {
+public class SinglePersonResponse extends FMSResponse {
 
-    private String associatedUsername;
+    public static final String PERSON_DOESNT_EXIST_ERROR = "Person doesn't exist in the database";
+
     private String personID;
+    private String associatedUsername;
     private String firstName;
     private String lastName;
     private String gender;
     private String fatherID;
     private String motherID;
     private String spouseID;
-    private String message;
-    private FMSError error;
-
-    public SinglePersonResponse(String associatedUsername, String personID, String firstName, String lastName, String gender, String fatherID, String motherID, String spouseID, String message) {
-        this.associatedUsername = associatedUsername;
-        this.personID = personID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.fatherID = fatherID;
-        this.motherID = motherID;
-        this.spouseID = spouseID;
-        this.message = message;
-    }
 
     public SinglePersonResponse(FMSError error) {
-        this.error = error;
+        super(null, error);
     }
 
-    public void setAssociatedUsername(String associatedUsername) {
-        this.associatedUsername = associatedUsername;
+    public SinglePersonResponse(String message, Person person) {
+        super(message, null);
+        this.personID = person.getPersonId();
+        this.associatedUsername = person.getAssociatedUsername();
+        this.firstName = person.getFirstName();
+        this.lastName = person.getLastName();
+        this.gender = person.getGender();
+        this.fatherID = person.getFatherId();
+        this.motherID = person.getMotherId();
+        this.spouseID = person.getSpouseId();
     }
 
-    public void setPersonID(String personID) {
-        this.personID = personID;
+    public String getId() {
+        return personID;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setId(String id) {
+        this.personID = id;
     }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setFatherID(String fatherID) {
-        this.fatherID = fatherID;
-    }
-
-    public void setMotherID(String motherID) {
-        this.motherID = motherID;
-    }
-
-    public void setSpouseID(String spouseID) {
-        this.spouseID = spouseID;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setError(FMSError error) {
-        this.error = error;
-    }
-
     public String getAssociatedUsername() {
         return associatedUsername;
     }
-
-    public String getPersonID() {
-        return personID;
+    public void setAssociatedUsername(String associatedUsername) {
+        this.associatedUsername = associatedUsername;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
     public String getLastName() {
         return lastName;
     }
-
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
     public String getGender() {
         return gender;
     }
-
-    public String getFatherID() {
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    public String getFather() {
         return fatherID;
     }
-
-    public String getMotherID() {
+    public void setFather(String father) {
+        this.fatherID = father;
+    }
+    public String getMother() {
         return motherID;
     }
-
-    public String getSpouseID() {
+    public void setMother(String mother) {
+        this.motherID = mother;
+    }
+    public String getSpouse() {
         return spouseID;
     }
-
-    public String getMessage() {
-        return message;
+    public void setSpouse(String spouse) {
+        this.spouseID = spouse;
     }
 
-    public FMSError getError() {
-        return error;
-    }
 }

@@ -1,125 +1,179 @@
 package Responses;
 
 import Helpers.FMSError;
+import Models.Event;
 
-public class SingleEventResponse {
+public class SingleEventResponse extends FMSResponse {
 
+    public static final String EVENT_DOESNT_EXIST_ERROR = "Event doesn't exist in the database";
+
+    private String eventId;
     private String associatedUsername;
-    private String eventID;
     private String personID;
-    private String latitude;
-    private String longitude;
+    private float latitude;
+    private float longitude;
     private String country;
     private String city;
     private String eventType;
-    private String year;
-    private String message;
-    private FMSError error;
+    private int year;
 
-    public SingleEventResponse(String associatedUsername, String eventID, String personID, String latitude, String longitude, String country, String city, String eventType, String year, String message) {
-        this.associatedUsername = associatedUsername;
-        this.eventID = eventID;
-        this.personID = personID;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.country = country;
-        this.city = city;
-        this.eventType = eventType;
-        this.year = year;
-        this.message = message;
-    }
-
+    /**
+     *
+     * @param error an FMS error object which contains a message
+     *              describing the error
+     */
     public SingleEventResponse(FMSError error) {
-        this.error = error;
+        super(null, error);
     }
 
+    /**
+     * Creates a SingleEventResponse.
+     *
+     * @param event the retrieved Event
+     */
+    public SingleEventResponse(String message, Event event) {
+        super(message, null);
+
+        if(event == null) {
+            return;
+        }
+
+        this.eventId = event.getEventId();
+        this.associatedUsername = event.getAssociatedUsername();
+        this.personID = event.getPersonId();
+        this.latitude = event.getLatitude();
+        this.longitude = event.getLongitude();
+        this.country = event.getCountry();
+        this.city = event.getCity();
+        this.eventType = event.getEventType();
+        this.year = event.getYear();
+    }
+
+    /**
+     * @return a unique identifier for this event
+     */
+    public String getId() {
+        return eventId;
+    }
+
+    /**
+     * @param id a unique identifier for this event
+     */
+    public void setId(String id) {
+        this.eventId = id;
+    }
+
+    /**
+     * @return the userName of the user in whose family map this event is found
+     */
+    public String getAssociatedUsername() {
+        return associatedUsername;
+    }
+
+    /**
+     * @param associatedUsername the userName of the user in whose family map
+     *                           this event is found
+     */
     public void setAssociatedUsername(String associatedUsername) {
         this.associatedUsername = associatedUsername;
     }
 
-    public void setEventID(String eventID) {
-        this.eventID = eventID;
-    }
-
-    public void setPersonID(String personID) {
-        this.personID = personID;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setError(FMSError error) {
-        this.error = error;
-    }
-
-    public String getAssociatedUsername() {
-
-        return associatedUsername;
-    }
-
-    public String getEventID() {
-        return eventID;
-    }
-
-    public String getPersonID() {
+    /**
+     * @return the id of the person in whose life this event occurred
+     */
+    public String getPersonId() {
         return personID;
     }
 
-    public String getLatitude() {
+    /**
+     * @param personID the id of the person in whose life this event occurred
+     */
+    public void setPersonId(String personID) {
+        this.personID = personID;
+    }
+
+    /**
+     * @return the latitude at which the event occurred
+     */
+    public float getLatitude() {
         return latitude;
     }
 
-    public String getLongitude() {
+    /**
+     * @param latitude the latitude at which the event occurred
+     */
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    /**
+     * @return the longitude of the event location
+     */
+    public float getLongitude() {
         return longitude;
     }
 
+    /**
+     * @param longitude the longitude of the event location
+     */
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
+    }
+
+    /**
+     * @return the country in which the event occurred
+     */
     public String getCountry() {
         return country;
     }
 
+    /**
+     * @param country the country in which the event occurred
+     */
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    /**
+     * @return the city in which the event occurred
+     */
     public String getCity() {
         return city;
     }
 
-    public String getEventType() {
+    /**
+     * @param city the city in which the event occurred
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    /**
+     * @return the type of the event
+     */
+    public String getType() {
         return eventType;
     }
 
-    public String getYear() {
+    /**
+     * @param type the event's type
+     */
+    public void setType(String type) {
+        this.eventType = type;
+    }
+
+    /**
+     * @return the year in which the event occurred
+     */
+    public int getYear() {
         return year;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public FMSError getError() {
-        return error;
+    /**
+     * @param year the year in which the event occurred
+     */
+    public void setYear(int year) {
+        this.year = year;
     }
 
 }

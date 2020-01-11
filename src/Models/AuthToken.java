@@ -3,12 +3,12 @@ package Models;
 public class AuthToken {
 
     private String tokenId;
-    private String personId;
+    private String personID;
     private String userName;
 
-    public AuthToken(String tokenId, String personId, String userName) {
+    public AuthToken(String tokenId, String personID, String userName) {
         this.tokenId = tokenId;
-        this.personId = personId;
+        this.personID = personID;
         this.userName = userName;
     }
 
@@ -16,8 +16,8 @@ public class AuthToken {
         this.tokenId = tokenId;
     }
 
-    public void setPersonId(String personId) {
-        this.personId = personId;
+    public void setPersonId(String personID) {
+        this.personID = personID;
     }
 
     public void setUserName(String userName) {
@@ -29,7 +29,7 @@ public class AuthToken {
     }
 
     public String getPersonId() {
-        return personId;
+        return personID;
     }
 
     public String getUserName() {

@@ -1,7 +1,7 @@
 package Models;
 
 public class Person {
-    private String personId;
+    private String personID;
     private String associatedUsername;
     private String firstName;
     private String lastName;
@@ -10,8 +10,8 @@ public class Person {
     private String motherId;
     private String spouseId;
 
-    public Person(String personId, String associatedUsername, String firstName, String lastName, String gender, String fatherId, String motherId, String spouseId) {
-        this.personId = personId;
+    public Person(String personID, String associatedUsername, String firstName, String lastName, String gender, String fatherId, String motherId, String spouseId) {
+        this.personID = personID;
         this.associatedUsername = associatedUsername;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -21,8 +21,8 @@ public class Person {
         this.spouseId = spouseId;
     }
 
-    public void setPersonId(String personId) {
-        this.personId = personId;
+    public void setPersonId(String personID) {
+        this.personID = personID;
     }
 
     public void setAssociatedUsername(String associatedUsername) {
@@ -54,7 +54,7 @@ public class Person {
     }
 
     public String getPersonId() {
-        return personId;
+        return personID;
     }
 
     public String getAssociatedUsername() {
