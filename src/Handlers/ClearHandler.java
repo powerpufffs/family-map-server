@@ -9,6 +9,10 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 
+/**
+ * Handler that handles all functionality related to clearing data from the database.
+ * Instantiated by the Server when a request arrives at the /clear endpoint.
+ */
 public class ClearHandler extends FMSHandler {
     /**
      * Receives a POST request, clears all data in the database
@@ -24,12 +28,12 @@ public class ClearHandler extends FMSHandler {
 
     @Override
     public boolean isValidMethod(String requestMethod) {
-        return requestMethod.toLowerCase() == "post";
+        return requestMethod.toLowerCase().equals("post");
     }
 
     @Override
     public boolean isValidEndPoint(String endpoint) {
-        return endpoint == "/clear";
+        return endpoint.equals("/clear");
     }
 
     @Override

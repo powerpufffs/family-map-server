@@ -13,7 +13,7 @@ public class ClearService {
         Database db = new Database();
 
         try {
-            db.openConnection(testing);
+            db.openConnection();
             UserDao userDao = new UserDao(db.getConnection());
             PersonDao personDao = new PersonDao(db.getConnection());
             AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
@@ -31,8 +31,7 @@ public class ClearService {
         } finally {
             try {
                 db.closeConnection(false);
-            } catch (DataAccessException e) {
-            }
+            } catch (DataAccessException e) { }
         }
     }
 

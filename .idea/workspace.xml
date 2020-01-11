@@ -2,102 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86233ca5-d9bd-43c2-a84c-7309d1a624d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_27_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/femaleNames.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/lastNames.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/maleNames.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/places.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/familymap.sqlite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/familymap.sqlite-journal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/familymapTest.sqlite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/apiguardian-api-1.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-jupiter-5.5.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-jupiter-api-5.5.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-jupiter-engine-5.5.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-jupiter-params-5.5.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-platform-commons-1.5.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-platform-engine-1.5.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/opentest4j-1.2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/sqlite-jdbc-3.27.2.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/sqlite-jdbc-3.28.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Handlers/ClearHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Handlers/DefaultHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Handlers/EventHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Handlers/FMSHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Handlers/FillHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Handlers/LoadHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Handlers/LoginHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Handlers/PersonHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Handlers/RegisterHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Helpers/DataAccessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Helpers/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Helpers/GsonHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Helpers/LocationGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Helpers/NameGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Helpers/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Requests/EventRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Requests/PersonRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Responses/FMSResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Responses/MultipleEventsResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Responses/MultiplePersonsResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/EventService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/DAOs/AuthTokenDaoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/DAOs/EventDaoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/DAOs/PersonDaoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/DAOs/UserDaoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/Services/ClearServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Handlers/ClearHandler2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Handlers/ExampleHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Handlers/HandlerException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyMapServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyMapServer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/DAOs/EventDao.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DAOs/EventDao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/DAOs/PersonDao.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DAOs/PersonDao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Helpers/Response.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Helpers/Response.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Models/AuthToken.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/AuthToken.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Models/Event.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/Event.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Models/Person.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/Person.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Models/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/User.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Requests/SinglePersonRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Requests/SinglePersonRequest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Responses/LoginResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/LoginResponse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Responses/RegisterReponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/RegisterReponse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Responses/SingleEventResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/SingleEventResponse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Responses/SinglePersonResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/SinglePersonResponse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAOs/AuthTokenDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/AuthTokenDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAOs/EventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/EventDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAOs/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/PersonDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAOs/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/Request.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/dbQueries" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/dbQueries" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/AuthToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Requests/FillRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/FillRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Requests/LoadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/LoadRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Requests/SingleEventRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Requests/SinglePersonRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/AllEventsResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/ClearResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/ClearResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/LoadResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/LoadResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/LoginResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/RegisterReponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/SingleEventResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/SingleEventResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/SinglePersonResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/SinglePersonResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/AllEventsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/ClearHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/DefaultHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DefaultHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/EventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FMSHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FMSHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helpers/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helpers/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/ClearService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/FamilyService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/FillResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/FillResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/FillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/FillService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/LoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/LoadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/SingleEventService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/SinglePersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/PersonService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,11 +57,11 @@
       <recent name="DAOs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/test/DAO" />
-      <recent name="$PROJECT_DIR$/test" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -275,7 +190,8 @@
       <workItem from="1572895216655" duration="11534000" />
       <workItem from="1578526726890" duration="30000" />
       <workItem from="1578708341080" duration="869000" />
-      <workItem from="1578765265739" duration="890000" />
+      <workItem from="1578765265739" duration="2321000" />
+      <workItem from="1578777776685" duration="5510000" />
     </task>
     <servers />
   </component>
@@ -305,11 +221,6 @@
           <url>file://$PROJECT_DIR$/src/DAOs/EventDao.java</url>
           <line>104</line>
           <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Services/ClearService.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/DAOs/UserDao.java</url>

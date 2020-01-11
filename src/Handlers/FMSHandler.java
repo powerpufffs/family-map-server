@@ -13,7 +13,7 @@ import java.net.HttpURLConnection;
 import java.util.List;
 
 /**
- * A default handler for web API requests.
+ * A Superclass the defines handler for web API requests.
  */
 public abstract class FMSHandler implements HttpHandler {
 

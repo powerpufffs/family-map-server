@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 
 public class EventHandler extends FMSHandler {
-
     @Override
     public FMSResponse handleRequest(HttpExchange exchange)
             throws IOException, JsonParseException {

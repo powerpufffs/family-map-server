@@ -85,7 +85,7 @@ public class Server {
         //TODO: Make this handler
         server.createContext("/", new DefaultHandler());
 
-        // Log message indicating that the HttpServer is about the start accepting
+        // Log message indicating that the HttpServer is about to start accepting
         // incoming client connections.
         System.out.println("Starting server");
 

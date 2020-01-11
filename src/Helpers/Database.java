@@ -8,25 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a singleton that handles all connections with the browser
+ * Represents a singleton that handles all connections with the SQLite database
  */
 public class Database {
     private Connection conn;
 
-    //Whenever we want to make a change to our database we will have to open a connection and use
-    //Statements created by that connection to initiate transactions
     public Connection openConnection() throws DataAccessException {
-        return this.openConnection(false);
-    }
-
-
-    public Connection openConnection(boolean testing) throws DataAccessException {
         try {
             //The Structure for this Connection is driver:language:path
             //The path assumes you start in the root of your project unless given a non-relative path
-            final String CONNECTION_URL = testing
-                    ? "jdbc:sqlite:familymapTest.sqlite"
-                    : "jdbc:sqlite:familymap.sqlite";
+            final String CONNECTION_URL = "jdbc:sqlite:familymap.sqlite";
 
             // Open a database connection to the file given in the path
             conn = DriverManager.getConnection(CONNECTION_URL);
