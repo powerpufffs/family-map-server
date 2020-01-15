@@ -9,19 +9,21 @@ import Responses.ClearResponse;
 // Deletes all data from DB. Includes user accounts, auth tokens and generated persons and events.
 public class ClearService {
 
-    public static ClearResponse clear(Boolean testing) {
+    public static ClearResponse clear() {
         Database db = new Database();
 
         try {
             db.openConnection();
             UserDao userDao = new UserDao(db.getConnection());
-            PersonDao personDao = new PersonDao(db.getConnection());
-            AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
-            EventDao eventDao = new EventDao(db.getConnection());
-
             userDao.deleteAllUsers();
+
+            PersonDao personDao = new PersonDao(db.getConnection());
             personDao.deleteAllPersons();
+
+            AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
             authTokenDao.deleteAllAuthTokens();
+
+            EventDao eventDao = new EventDao(db.getConnection());
             eventDao.deleteAllEvents();
 
             db.closeConnection(true);
@@ -33,9 +35,5 @@ public class ClearService {
                 db.closeConnection(false);
             } catch (DataAccessException e) { }
         }
-    }
-
-    public static ClearResponse clear() {
-        return clear(false);
     }
 }

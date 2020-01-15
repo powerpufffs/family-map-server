@@ -22,14 +22,14 @@ public class AuthTokenDaoTest {
             "randomPersonId",
             "randomUserName"
         );
-        db.openConnection(true);
+        db.openConnection();
         db.createTables();
         db.closeConnection(true);
     }
 
     //    @AfterEach
     public void tearDown() throws Exception {
-        db.openConnection(true);
+        db.openConnection();
         db.clearTables();
         db.closeConnection(true);
     }
@@ -64,7 +64,7 @@ public class AuthTokenDaoTest {
         AuthTokenDao authTokenDao = null;
 
         try {
-            connection = db.openConnection(true);
+            connection = db.openConnection();
             authTokenDao = new AuthTokenDao(connection);
             authTokenDao.insertAuthToken(authToken);
 
@@ -90,7 +90,7 @@ public class AuthTokenDaoTest {
         AuthToken compareAuthToken = null;
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             AuthTokenDao authTokenDao = new AuthTokenDao(connection);
 
             authTokenDao.insertAuthToken(authToken);
@@ -115,7 +115,7 @@ public class AuthTokenDaoTest {
         AuthToken compareAuthToken = null;
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             AuthTokenDao authTokenDao = new AuthTokenDao(connection);
             compareAuthToken = authTokenDao.readAuthToken("any");
 
@@ -137,7 +137,7 @@ public class AuthTokenDaoTest {
         AuthToken compareAuthToken = null;
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             AuthTokenDao authTokenDao = new AuthTokenDao(connection);
 
             //Insert user then delete table

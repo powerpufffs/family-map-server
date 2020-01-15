@@ -27,14 +27,14 @@ public class EventDaoTest {
                 "Marriage",
                 2010
         );
-        db.openConnection(true);
+        db.openConnection();
         db.createTables();
         db.closeConnection(true);
     }
 
     //    @AfterEach
     public void tearDown() throws Exception {
-        db.openConnection(true);
+        db.openConnection();
         db.clearTables();
         db.closeConnection(true);
     }
@@ -45,7 +45,7 @@ public class EventDaoTest {
         Event compareEvent = null;
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             EventDao eventDao = new EventDao(connection);
             eventDao.insert(event);
             compareEvent = eventDao.readOneEvent(event.getEventId());
@@ -69,7 +69,7 @@ public class EventDaoTest {
         EventDao eventDao = null;
 
         try {
-            connection = db.openConnection(true);
+            connection = db.openConnection();
             eventDao = new EventDao(connection);
             eventDao.insert(event);
 
@@ -95,7 +95,7 @@ public class EventDaoTest {
         Event compareEvent = null;
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             EventDao eventDao = new EventDao(connection);
 
             eventDao.insert(event);
@@ -120,7 +120,7 @@ public class EventDaoTest {
         Event compareEvent = null;
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             EventDao eventDao = new EventDao(connection);
             compareEvent = eventDao.readOneEvent("any");
 
@@ -143,7 +143,7 @@ public class EventDaoTest {
         Event compareEvent = null;
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             EventDao eventDao = new EventDao(connection);
 
             eventDao.insert(event);
@@ -168,7 +168,7 @@ public class EventDaoTest {
         Event compareEvent = null;
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             EventDao eventDao = new EventDao(connection);
             compareEvent = eventDao.readOneEvent("any");
 
@@ -201,7 +201,7 @@ public class EventDaoTest {
         );
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             EventDao eventDao = new EventDao(connection);
 
             //Insert users then delete table
@@ -237,7 +237,7 @@ public class EventDaoTest {
        );
 
        try {
-           Connection connection = db.openConnection(true);
+           Connection connection = db.openConnection();
            EventDao eventDao = new EventDao(connection);
 
            //Insert users then delete table

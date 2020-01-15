@@ -16,6 +16,8 @@ import org.junit.jupiter.api.Test;
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
+//TODO: figure out why db is getting locked here
+
 public class ClearServiceTest {
     private Database db;
     private User user;
@@ -61,13 +63,13 @@ public class ClearServiceTest {
             UUID.randomUUID().toString()
         );
 
-        db.openConnection(true);
+        db.openConnection();
         db.createTables();
         db.closeConnection(true);
     }
 
     public void tearDown() throws Exception {
-        db.openConnection(true);
+        db.openConnection();
         db.clearTables();
         db.closeConnection(true);
     }
@@ -85,15 +87,24 @@ public class ClearServiceTest {
         personDao.insert(person);
         authTokenDao.insertAuthToken(authToken);
         eventDao.insert(event);
-
         // Check that values are actually in the db
         assertNotNull(userDao.readOneUser(user.getUserName()));
         assertNotNull(personDao.readOnePersons(person.getPersonId()));
         assertNotNull(authTokenDao.readAuthToken(authToken.getTokenId()));
         assertNotNull(eventDao.readOneEvent(event.getEventId()));
 
-        ClearResponse response = ClearService.clear(true);
-        System.out.println(response.toString());
+        db.closeConnection(true);
+
+        ClearResponse response = ClearService.clear();
+
+        db.openConnection();
+
+        assertThrows(DataAccessException.class, () -> {userDao.readOneUser(user.getUserName());});
+        assertThrows(DataAccessException.class, () -> {personDao.readOnePersons(person.getPersonId());});
+        assertThrows(DataAccessException.class, () -> {authTokenDao.readAuthToken(authToken.getTokenId());});
+        assertThrows(DataAccessException.class, () -> {eventDao.readOneEvent(event.getEventId());});
+
+        db.closeConnection(true);
 
         tearDown();
     }
@@ -101,7 +112,7 @@ public class ClearServiceTest {
     @Test
     public void clearNegative() throws Exception {
         setup();
-        db.openConnection(true);
+        db.openConnection();
 
         UserDao userDao = new UserDao(db.getConnection());
         PersonDao personDao = new PersonDao(db.getConnection());
@@ -119,7 +130,7 @@ public class ClearServiceTest {
         assertNotNull(authTokenDao.readAuthToken(authToken.getTokenId()));
         assertNotNull(eventDao.readOneEvent(event.getEventId()));
 
-        ClearResponse response = ClearService.clear(true);
+        ClearResponse response = ClearService.clear();
         System.out.println(response.toString());
 
         db.closeConnection(true);

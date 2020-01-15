@@ -32,11 +32,13 @@ public class DefaultHandler implements HttpHandler {
             if(page.exists()) {
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
                 Files.copy(page.toPath(), resBody);
+                exchange.getResponseBody().flush();
                 exchange.getResponseBody().close();
             } else {
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_NOT_FOUND, 0);
                 page = new File("web" + "/HTML" + "/404.html");
                 Files.copy(page.toPath(), resBody);
+                exchange.getResponseBody().flush();
                 exchange.getResponseBody().close();
             }
 

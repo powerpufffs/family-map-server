@@ -90,7 +90,7 @@ public class UserDao {
 
     public void deleteAllUsers() throws DataAccessException {
         try (Statement stmt = connection.createStatement()) {
-            stmt.executeUpdate("DELETE FROM user");
+            stmt.executeUpdate("DELETE FROM user;");
         } catch (SQLException e) {
             throw new DataAccessException("Error encountered while deleting all users from the database.");
         }

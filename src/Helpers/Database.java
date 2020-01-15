@@ -13,6 +13,8 @@ import java.util.List;
 public class Database {
     private Connection conn;
 
+    private static int counter = 0;
+
     public Connection openConnection() throws DataAccessException {
         try {
             //The Structure for this Connection is driver:language:path
@@ -22,6 +24,12 @@ public class Database {
             // Open a database connection to the file given in the path
             conn = DriverManager.getConnection(CONNECTION_URL);
 
+            for(int i = 0; i < counter; i++)
+            {
+                System.out.print("   ");
+            }
+            System.out.println("opening connection");
+            counter++;
             // Start a transaction
             conn.setAutoCommit(false);
         } catch (SQLException e) {
@@ -57,6 +65,13 @@ public class Database {
                 //will rollback any changes we made during this connection
                 conn.rollback();
             }
+
+            counter--;
+            for(int i = 0; i < counter; i++)
+            {
+                System.out.print("   ");
+            }
+            System.out.println("closing connection");
 
             conn.close();
             conn = null;
@@ -140,6 +155,11 @@ public class Database {
         } catch (SQLException e) {
             throw new DataAccessException("SQL Error encountered while clearing tables");
         }
+    }
+
+    public void resetTables() throws DataAccessException {
+        clearTables();
+        createTables();
     }
 }
 

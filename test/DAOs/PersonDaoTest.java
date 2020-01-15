@@ -179,7 +179,7 @@ public class PersonDaoTest {
         );
 
         try {
-            Connection connection = db.openConnection(true);
+            Connection connection = db.openConnection();
             PersonDao personDao = new PersonDao(connection);
 
             //Insert users then delete table
