@@ -4,10 +4,7 @@ import Helpers.DataAccessException;
 import Models.AuthToken;
 import Models.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.UUID;
 
 /**
@@ -81,22 +78,8 @@ public class AuthTokenDao {
      * @throws DataAccessException
      */
     public void deleteAllAuthTokens() throws DataAccessException {
-        String sqlToDrop = "DROP TABLE IF EXISTS ?";
-        String createSql = "CREATE TABLE IF NOT EXISTS ?" +
-            "(" +
-            "token_id TEXT PRIMARY KEY, " +
-            "person_id TEXT NOT NULL, " +
-            "userName TEXT NOT NULL " +
-            ");";
-
-        try(
-            PreparedStatement stmt = connection.prepareStatement(sqlToDrop);
-            PreparedStatement createStmt = connection.prepareStatement(createSql)
-        ) {
-            stmt.setString(1, "person");
-            createStmt.setString(1, "person");
-            stmt.executeUpdate();
-            createStmt.executeUpdate();
+        try (Statement stmt = connection.createStatement()) {
+            stmt.execute("DELETE FROM authToken");
         } catch (SQLException e) {
             throw new DataAccessException("Error encountered while attempting to delete all persons.");
         }

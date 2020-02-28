@@ -3,6 +3,8 @@ package DAOs;
 import Helpers.DataAccessException;
 import Models.AuthToken;
 import Models.Person;
+
+import javax.swing.plaf.nimbus.State;
 import java.util.List;
 import java.sql.*;
 
@@ -131,25 +133,8 @@ public class PersonDao {
      * @throws DataAccessException
      */
     public void deleteAllPersons() throws DataAccessException {
-        String sqlToDrop = "DROP TABLE IF EXISTS ?";
-        String createSql = "CREATE TABLE ? (" +
-                "person_id TEXT PRIMARY KEY," +
-                "associated_userName TEXT NOT NULL," +
-                "first_name TEXT NOT NULL," +
-                "last_name TEXT NOT NULL," +
-                "gender TEXT NOT NULL," +
-                "father_id TEXT," +
-                "mother_id TEXT," +
-                "spouse_id TEXT);";
-
-        try(
-            PreparedStatement stmt = connection.prepareStatement(sqlToDrop);
-            PreparedStatement createStmt = connection.prepareStatement(createSql)
-        ) {
-            stmt.setString(1, "person");
-            createStmt.setString(1, "person");
-            stmt.executeUpdate();
-            createStmt.executeUpdate();
+        try (Statement stmt = connection.createStatement()) {
+            stmt.execute("DELETE FROM person");
         } catch (SQLException e) {
             throw new DataAccessException("Error encountered while attempting to delete all persons.");
         }

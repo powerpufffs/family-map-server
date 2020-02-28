@@ -32,7 +32,6 @@ public class ClearService {
             EventDao eventDao = new EventDao(db.getConnection());
             eventDao.deleteAllEvents();
 
-            db.closeConnection(true);
             return new ClearResponse(ClearResponse.CLEAR_SUCCESSFUL_MESSAGE);
         } catch (DataAccessException e) {
             return new ClearResponse(new FMSError(ClearResponse.INTERNAL_SERVER_ERROR));

@@ -130,7 +130,7 @@ public class EventDao {
      */
     public void deleteAllEvents() throws DataAccessException {
         try(Statement stmt = connection.createStatement()) {
-            stmt.executeUpdate("DELETE FROM event");
+            stmt.execute("DELETE FROM event");
         } catch (SQLException e) {
             throw new DataAccessException("Error encountered while deleting all events");
         }
