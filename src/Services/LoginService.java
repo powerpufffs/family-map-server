@@ -11,9 +11,12 @@ import Requests.LoginRequest;
 import Responses.LoginResponse;
 import java.util.UUID;
 
-
+/**
+ * A Class that specifies the attributes and methods of a LoginService.
+ */
 public class LoginService {
     /**
+     * Attempts to log a user in.
      * @param userName userName of the user seeking to log in
      * @param password password of the user seeking to log in
      * @return a loginResponse object containing an error,

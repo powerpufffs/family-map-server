@@ -4,9 +4,7 @@ import Helpers.FMSError;
 import Responses.FMSResponse;
 
 /**
- * The result of a request to the <code>/user/login</code> or
- * <code>/user/register</code> endpoint. The outcome of an attempt to
- * log a user into or register a new user with the server.
+ * A Class detailing the attributes and methods of a FillResponse.
  */
 public class FillResponse extends FMSResponse {
 
@@ -14,8 +12,7 @@ public class FillResponse extends FMSResponse {
             "or generations parameter";
 
     /**
-     * Cretaes a new error FillResponse.
-     *
+     * Constructs an error FillResponse
      * @param error an FMSError object
      */
     public FillResponse(FMSError error) {
@@ -23,9 +20,9 @@ public class FillResponse extends FMSResponse {
     }
 
     /**
-     * Creates a new success FillResponse.
-     *
-     * @param message string describing the successful result
+     * Constructs a success FillResponse.
+     * @param personsCreated the number of people that were created.
+     * @param eventsCreated the number of events that were created.
      */
     public FillResponse(int personsCreated, int eventsCreated) {
         super("Successfully added " +

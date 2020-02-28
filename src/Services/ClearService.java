@@ -6,9 +6,15 @@ import Helpers.Database;
 import Helpers.FMSError;
 import Responses.ClearResponse;
 
-// Deletes all data from DB. Includes user accounts, auth tokens and generated persons and events.
+/**
+ * A Class that details the attributes and methods of a ClearResponse.
+ */
 public class ClearService {
 
+    /**
+     * Clears the contents of the database entirely.
+     * @return a ClearResponse containing the results of the operation.
+     */
     public static ClearResponse clear() {
         Database db = new Database();
 

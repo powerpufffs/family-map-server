@@ -7,14 +7,26 @@ import Models.Event;
 import java.sql.*;
 import java.util.List;
 
+/**
+ * A Class that defines the attributes and methods of an EventDao.
+ */
 public class EventDao {
 
     private final Connection connection;
 
+    /**
+     * Constructs an EventDao
+     * @param connection a connection to the database.
+     */
     public EventDao(Connection connection) {
         this.connection = connection;
     }
 
+    /**
+     * Saves an Event into the database.
+     * @param event the Event to be saved.
+     * @throws DataAccessException
+     */
     public void insert(Event event) throws DataAccessException {
         String sql = "INSERT INTO event (event_id, associated_userName, person_id, latitude, "
                 + "longitude, country, city, event_type, year) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -38,6 +50,12 @@ public class EventDao {
         }
     }
 
+    /**
+     * Reads an AuthToken from the database.
+     * @param eventId a unique id that will be used to retrieve the Event.
+     * @throws DataAccessException
+     * @return the AuthToken that matches the id.
+     */
     public Event readOneEvent(String eventId) throws DataAccessException {
         if(eventId == null)
             throw new DataAccessException("eventId was null when attempting to read one event");
@@ -70,15 +88,21 @@ public class EventDao {
         return null;
     }
 
+    /**
+     * Reads all Events from the database.
+     * @param authToken an AuthToken that will be used to authorize the method.
+     * @throws DataAccessException
+     * @return a List of all Events.
+     */
     public Event[] readAllEvents(AuthToken authToken) throws Error, DataAccessException {
         if(authToken == null)
-            throw new DataAccessException("Error. authToken was null when attempting to read one authToken");
+            throw new DataAccessException("Error. authToken was null when attempting to read one authToken.");
 
         List<Event> eventList = null;
 
         try(
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM person")
+            ResultSet rs = stmt.executeQuery("SELECT * FROM event")
         ) {
             while(rs.next()) {
                 eventList.add(new Event(
@@ -100,6 +124,10 @@ public class EventDao {
         }
     }
 
+    /**
+     * Deletes all Events currently in the Database.
+     * @throws DataAccessException
+     */
     public void deleteAllEvents() throws DataAccessException {
         try(Statement stmt = connection.createStatement()) {
             stmt.executeUpdate("DELETE FROM event");
@@ -108,6 +136,10 @@ public class EventDao {
         }
     }
 
+    /**
+     * Deletes all Events associated with a User in Database.
+     * @throws DataAccessException
+     */
     public void deleteAllEventsForUser(String userName) throws DataAccessException {
         String sql = "DELETE FROM event WHERE associated_userName = ?";
         try(PreparedStatement stmt = connection.prepareStatement(sql)) {

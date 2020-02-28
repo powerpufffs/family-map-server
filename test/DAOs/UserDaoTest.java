@@ -51,7 +51,7 @@ public class UserDaoTest {
             compareUser = userDao.readOneUser(user.getUserName());
 
             assertNotNull(compareUser);
-            assertEquals(user, compareUser);
+            assertTrue(user.equals(compareUser));
 
             db.closeConnection(true);
             tearDown();

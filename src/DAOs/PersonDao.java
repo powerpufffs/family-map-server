@@ -3,20 +3,30 @@ package DAOs;
 import Helpers.DataAccessException;
 import Models.AuthToken;
 import Models.Person;
-
-import javax.xml.crypto.Data;
-import javax.xml.transform.Result;
 import java.util.List;
 import java.sql.*;
 
+
+/**
+ * A Class that defines the attributes and methods of a PersonDao.
+ */
 public class PersonDao {
 
     private final Connection connection;
 
+    /**
+     * Constructs a PersonDao
+     * @param connection a connection to the database.
+     */
     public PersonDao(Connection connection) {
         this.connection = connection;
     }
 
+    /**
+     * Saves a Person into the database.
+     * @param person the Person to be saved.
+     * @throws DataAccessException
+     */
     public void insert(Person person) throws DataAccessException {
         String sql = "INSERT INTO person (person_id, associated_userName, first_name, last_name, gender, " +
                 "father_id, mother_id, spouse_id) VALUES(?,?,?,?,?,?,?,?)";
@@ -37,6 +47,12 @@ public class PersonDao {
         }
     }
 
+    /**
+     * Reads a Person from the database.
+     * @param personID a unique id that will be used to retrieve the Person.
+     * @throws DataAccessException
+     * @return the Person that matches the id.
+     */
     public Person readOnePersons(String personID) throws DataAccessException {
         if(personID == null)
             throw new DataAccessException("Error. personID was null when attempting to read one person");
@@ -75,6 +91,12 @@ public class PersonDao {
         return null;
     }
 
+    /**
+     * Reads all Persons from the database.
+     * @param authToken an AuthToken that will be used to authorize the method.
+     * @throws DataAccessException
+     * @return a List of all Persons.
+     */
     public Person[] readAllPersons(AuthToken authToken) throws DataAccessException {
         if(authToken == null)
             throw new DataAccessException("Error. authToken was null when attempting to read one authToken");
@@ -104,6 +126,10 @@ public class PersonDao {
         }
     }
 
+    /**
+     * Deletes all Persons currently in the Database.
+     * @throws DataAccessException
+     */
     public void deleteAllPersons() throws DataAccessException {
         String sqlToDrop = "DROP TABLE IF EXISTS ?";
         String createSql = "CREATE TABLE ? (" +
@@ -129,6 +155,11 @@ public class PersonDao {
         }
     }
 
+    /**
+     * Deletes all Persons associated with the User currently in the Database.
+     * @param userName the username of the user.
+     * @throws DataAccessException
+     */
     public void deleteAllPersonsForUser(String userName) throws DataAccessException {
         String sql = "DELETE FROM person WHERE associated_userName = ?";
         try(PreparedStatement stmt = connection.prepareStatement(sql)) {

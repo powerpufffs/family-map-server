@@ -10,7 +10,10 @@ import java.net.HttpURLConnection;
 
 public class ClearHandler2 implements HttpHandler {
     /**
+     * Handles an http request, ensures that the request is valid and invokes Clear Service.
+     *
      * @param exchange represents the HttpExchange object passed from the Server
+     * @throws IOException
      */
     @Override
     public void handle(HttpExchange exchange) throws IOException {

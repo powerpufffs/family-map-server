@@ -3,9 +3,11 @@ package Responses;
 import Helpers.FMSError;
 import Models.Event;
 import Models.Person;
-
 import java.util.List;
 
+/**
+ * A Class detailing the attributes and methods of a MultiplePersonsResponse.
+ */
 public class MultiplePersonsResponse extends FMSResponse {
 
     public static final String INVALID_PERSONID_ERROR = "Invalid personID parameter";
@@ -13,16 +15,27 @@ public class MultiplePersonsResponse extends FMSResponse {
 
     private List<SinglePersonResponse> data;
 
-    public MultiplePersonsResponse(String message, Person[] persons) {
-        super(message, null);
-        for(Person person : persons) {
-            data.add(new SinglePersonResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, person));
-        }
-    }
-
+    /**
+     * Constructs an error MultiplePersonsResponse
+     *
+     * @param error error sent when unsuccessful.
+     */
     public MultiplePersonsResponse(FMSError error) {
         super(error);
         this.data = null;
+    }
+
+    /**
+     * Constructs an error MultiplePersonsResponse
+     *
+     * @param message message sent when successful.
+     * @param persons array of Person
+     */
+    public MultiplePersonsResponse(String message, Person[] persons) {
+        super(message, null);
+        for (Person person : persons) {
+            data.add(new SinglePersonResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, person));
+        }
     }
 
     public void setData(List<SinglePersonResponse> data) {
@@ -31,33 +44,5 @@ public class MultiplePersonsResponse extends FMSResponse {
 
     public List<SinglePersonResponse> getData() {
         return data;
-    }
-
-    public static class MultipleEventsResponse extends FMSResponse {
-
-        public static final String INVALID_PERSONID_ERROR = "Invalid personID parameter";
-        public static final String REQUESTED_PERSON_DOESNT_EXIST_ERROR = "Requested person does not belong to this user";
-
-        private List<SingleEventResponse> singleEventResponses;
-
-        public MultipleEventsResponse(String message, Event[] events) {
-            super(message, null);
-            for(Event event : events) {
-                singleEventResponses.add(new SingleEventResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, event));
-            }
-        }
-
-        public MultipleEventsResponse(FMSError error) {
-            super(error);
-            this.singleEventResponses = null;
-        }
-
-        public void setSingleEventResponses(List<SingleEventResponse> singleEventResponses) {
-            this.singleEventResponses = singleEventResponses;
-        }
-
-        public List<SingleEventResponse> getSingleEventResponses() {
-            return singleEventResponses;
-        }
     }
 }

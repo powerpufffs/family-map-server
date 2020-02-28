@@ -148,7 +148,7 @@ public class PersonDaoTest {
             Connection connection = db.openConnection();
             PersonDao personDao = new PersonDao(connection);
 
-            //Insert user then delete table
+            //Insert user then delete tables
             personDao.insert(person);
             assertNotNull(personDao.readOnePersons(person.getPersonId()));
             personDao.deleteAllPersons();

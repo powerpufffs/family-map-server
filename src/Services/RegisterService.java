@@ -15,8 +15,16 @@ import Responses.LoginResponse;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * A Class that details the attributes and methods of a RegisterService
+ */
 public class RegisterService {
 
+    /**
+     * Registers a new user and create 4 generations of ancestor data.
+     * @param request a RegisterRequest containing requisite data for the operation
+     * @return a LoginResponse containing the results of the operation.
+     */
     public static LoginResponse register(RegisterRequest request) {
         Database db = new Database();
 
@@ -28,7 +36,7 @@ public class RegisterService {
         list.add(request.getLastName());
         list.add(request.getGender());
 
-        if(!FMSResponse.allAreNonNull(list)) {
+        if(!FMSResponse.allAreNotNull(list)) {
             return new LoginResponse(new FMSError(LoginResponse.INVALID_OR_MISSING_INPUT_ERROR));
         }
 

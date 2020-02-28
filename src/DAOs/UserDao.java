@@ -5,14 +5,26 @@ import Models.User;
 
 import java.sql.*;
 
+/**
+ * A Class that defines the attributes and methods of a UserDao.
+ */
 public class UserDao {
 
     private final Connection connection;
 
+    /**
+     * Constructs a UserDao
+     * @param connection a connection to the database.
+     */
     public UserDao(Connection connection) {
         this.connection = connection;
     }
 
+    /**
+     * Saves a User into the database.
+     * @param user the User to be saved.
+     * @throws DataAccessException
+     */
     public void insert(User user) throws DataAccessException {
         String sql = "INSERT INTO user (userName, password, email, first_name, "
             + "last_name, gender, person_id) VALUES(?, ?, ?, ?, ?, ?, ?)";
@@ -31,6 +43,12 @@ public class UserDao {
         }
     }
 
+    /**
+     * Reads a User from the database.
+     * @param userName username associated with the Person.
+     * @throws DataAccessException
+     * @return the User that is associated with the username.
+     */
     public User readOneUser(String userName) throws DataAccessException {
         if(userName == null) {
             throw new DataAccessException("Error. userName was null when attempting to read one user");
@@ -73,6 +91,11 @@ public class UserDao {
         return null;
     }
 
+    /**
+     * Updates data of a Person associated with the User.
+     * @param user the User whose details will be updated.
+     * @throws DataAccessException
+     */
     public void updatePersonIdForUser(User user) throws DataAccessException {
         String sql = "UPDATE user " +
                      "SET person_id = ? " +
@@ -88,6 +111,10 @@ public class UserDao {
 
     public static User[] readAllUsers(String userId) { return null; }
 
+    /**
+     * Deletes all Users currently in the Database.
+     * @throws DataAccessException
+     */
     public void deleteAllUsers() throws DataAccessException {
         try (Statement stmt = connection.createStatement()) {
             stmt.executeUpdate("DELETE FROM user;");

@@ -2,21 +2,25 @@ package Services;
 
 import DAOs.AuthTokenDao;
 import DAOs.EventDao;
-import DAOs.PersonDao;
 import Helpers.DataAccessException;
 import Helpers.Database;
 import Helpers.FMSError;
 import Models.AuthToken;
 import Models.Event;
-import Models.Person;
 import Requests.EventRequest;
-import Requests.PersonRequest;
 import Responses.FMSResponse;
 import Responses.MultipleEventsResponse;
 import Responses.SingleEventResponse;
 
+/**
+ * A Class that details the attributes and methods of a EventService.
+ */
 public class EventService {
 
+    /**
+     * Returns a single Event that's associated with the AuthToken and EventId contained in the EventRequest.
+     * @return a SingleEventResponse containing the results of the method.
+     */
     public static SingleEventResponse getSingleEvent(EventRequest request) {
         if(request.getAuthToken() == null) {
             return new SingleEventResponse(new FMSError(MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR));
@@ -56,6 +60,10 @@ public class EventService {
         return response;
     }
 
+    /**
+     * Returns all Events that's associated with the AuthToken contained in EventRequest.
+     * @return a MultipleEventResponse containing the results of the method.
+     */
     public static MultipleEventsResponse getAllEvents(EventRequest request) {
         if(request.getAuthToken() == null) {
             return new MultipleEventsResponse(new FMSError(MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR));

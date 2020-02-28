@@ -1,5 +1,8 @@
 package Requests;
 
+/**
+ * A Class that details the attributes and methods of an RegisterRequest.
+ */
 public class RegisterRequest {
 
     private String userName;
@@ -9,6 +12,15 @@ public class RegisterRequest {
     private String lastName;
     private String gender;
 
+    /**
+     * Constructs a RegisterRequest
+     * @param userName the userName of the user
+     * @param password the password of the user
+     * @param email the email of the user
+     * @param firstName the first name of the user
+     * @param lastName the last name of the user
+     * @param gender the gender of the user
+     */
     public RegisterRequest(String userName, String password, String email, String firstName, String lastName, String gender) {
         this.userName = userName;
         this.password = password;

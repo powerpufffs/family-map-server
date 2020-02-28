@@ -10,14 +10,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
 
+/**
+ * A Class that defines the properties and methods of an AuthTokenDao.
+ */
 public class AuthTokenDao {
 
     private final Connection connection;
 
+    /**
+     * Constructs an AuthTokenDao
+     * @param connection a connection to the database.
+     */
     public AuthTokenDao(Connection connection) {
         this.connection = connection;
     }
 
+    /**
+     * Saves an AuthToken into the database.
+     * @param authToken the AuthToken to be saved.
+     * @throws DataAccessException
+     */
     public void insertAuthToken(AuthToken authToken) throws DataAccessException {
         String sql = "INSERT INTO authToken (token_id, person_id, userName) VALUES(?, ?, ?)";
 
@@ -31,6 +43,12 @@ public class AuthTokenDao {
         }
     }
 
+    /**
+     * Reads an AuthToken from the database.
+     * @param tokenId a unique id that will be used to retrieve the AuthToken.
+     * @throws DataAccessException
+     * @return the AuthToken that matches the id.
+     */
     public AuthToken readAuthToken(String tokenId) throws DataAccessException {
         if(tokenId == null) {
             throw new DataAccessException("Error. tokenId was null when attempting to read one authToken");
@@ -58,6 +76,10 @@ public class AuthTokenDao {
         return null;
     }
 
+    /**
+     * Deletes an AuthToken currently in the Database.
+     * @throws DataAccessException
+     */
     public void deleteAllAuthTokens() throws DataAccessException {
         String sqlToDrop = "DROP TABLE IF EXISTS ?";
         String createSql = "CREATE TABLE IF NOT EXISTS ?" +

@@ -1,20 +1,25 @@
 package Services;
 
 import DAOs.AuthTokenDao;
-import DAOs.EventDao;
 import DAOs.PersonDao;
 import Helpers.DataAccessException;
 import Helpers.Database;
 import Helpers.FMSError;
 import Models.AuthToken;
-import Models.Event;
 import Models.Person;
-import Requests.EventRequest;
 import Requests.PersonRequest;
 import Responses.*;
 
+/**
+ * A Class that specifies the attributes and methods of a PersonService.
+ */
 public class PersonService {
 
+    /**
+     * Reads a single person from the database.
+     * @param request a PersonRequest containing requisite data to complete the operation
+     * @return a SinglePersonResponse containing an error on error and a Person on success
+     */
     public static SinglePersonResponse getSinglePerson(PersonRequest request) {
         if(request.getAuthToken() == null) {
             return new SinglePersonResponse(new FMSError(MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR));
@@ -54,6 +59,11 @@ public class PersonService {
         return response;
     }
 
+    /**
+     * Reads all persons from the database.
+     * @param request a PersonRequest containing requisite data to complete the operation
+     * @return a MultiplePersonsResponse containing an error on error and Container of Persons on success
+     */
     public static MultiplePersonsResponse getAllPersons(PersonRequest request) {
         if(request.getAuthToken() == null) {
             return new MultiplePersonsResponse(new FMSError(MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR));

@@ -2,27 +2,254 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86233ca5-d9bd-43c2-a84c-7309d1a624d7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/DAOs/AuthTokenDaoTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/DAOs/EventDaoTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/DAOs/PersonDaoTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/DAOs/UserDaoTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/ClearHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/ClearHandler2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/DefaultHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/EventHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/FMSHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/FillHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/HandlerException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/LoadHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/LoginHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/PersonHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/RegisterHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Handlers/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Helpers/DataAccessException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Helpers/Database.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Helpers/GsonHelper.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Helpers/LocationGenerator.Location.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Helpers/LocationGenerator.Locations.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Helpers/LocationGenerator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Helpers/NameGenerator.Names.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Helpers/NameGenerator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Helpers/Server.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/ListGamesHandler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Requests/EventRequest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Requests/PersonRequest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Responses/FMSResponse.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Responses/MultipleEventsResponse.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Responses/MultiplePersonsResponse.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Services/ClearServiceTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Services/EventService.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Services/PersonService.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/allclasses-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/allpackages-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/element-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-17.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-18.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-19.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-files/index-20.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/javadocs.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/member-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/member-search-index.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/package-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/package-search-index.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/external/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-bg_glass_65_dadada_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-bg_glass_75_dadada_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-bg_glass_75_e6e6e6_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-bg_glass_95_fef1ec_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-icons_222222_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-icons_2e83ff_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-icons_454545_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-icons_888888_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/images/ui-icons_cd0a0a_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-3.4.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.structure.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jquery-ui.structure.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jszip-utils/dist/jszip-utils-ie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jszip-utils/dist/jszip-utils-ie.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jszip-utils/dist/jszip-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jszip-utils/dist/jszip-utils.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jszip/dist/jszip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script-dir/jszip/dist/jszip.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/serialized-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/type-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/type-search-index.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javadocs.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FamilyMapServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyMapServer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/DAOs/AuthTokenDao.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DAOs/AuthTokenDao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/DAOs/EventDao.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DAOs/EventDao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/DAOs/PersonDao.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DAOs/PersonDao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/DAOs/UserDao.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DAOs/UserDao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/DAOs/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DAOs/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/DAOs/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DAOs/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Helpers/FMSError.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Helpers/FMSError.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Helpers/HttpRequestType.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Helpers/HttpRequestType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Helpers/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Helpers/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Helpers/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Helpers/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Models/AuthToken.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/AuthToken.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Models/Event.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/Event.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Models/Person.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/Person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Models/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Models/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Models/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Models/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Requests/FillRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Requests/FillRequest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Requests/LoadRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Requests/LoadRequest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Requests/LoginRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Requests/LoginRequest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Requests/RegisterRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Requests/RegisterRequest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Requests/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Requests/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Requests/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Requests/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Responses/ClearResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/ClearResponse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Responses/FamilyResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/FamilyResponse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Responses/FillResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/FillResponse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Responses/LoadResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/LoadResponse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Responses/LoginResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/LoginResponse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Responses/SingleEventResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/SingleEventResponse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Responses/SinglePersonResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/SinglePersonResponse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Responses/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Responses/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Responses/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Services/ClearService.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Services/ClearService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Services/FillResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Services/FillResponse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Services/FillService.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Services/FillService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Services/LoadService.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Services/LoadService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Services/LoginService.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Services/LoginService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Services/RegisterService.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Services/RegisterService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Services/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Services/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Services/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Services/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/deprecated-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/overview-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/familymap.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/familymap.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/familymap.sqlite-journal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/AuthTokenDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/AuthTokenDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/EventDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/EventDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/PersonDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/UserDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/ClearHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/ClearHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/ClearHandler2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/ClearHandler2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/DefaultHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/DefaultHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/EventHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FMSHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FMSHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FillHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FillHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/HandlerException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/HandlerException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoadHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoadHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoginHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoginHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/PersonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/PersonHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/RegisterHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/RegisterHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/DataAccessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/DataAccessException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/FMSError.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/FMSError.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/GsonHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/GsonHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/HttpRequestType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/HttpRequestType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator$Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator$Location.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator$Locations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator$Locations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/NameGenerator$Names.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/NameGenerator$Names.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/NameGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/NameGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/META-INF/FamilyMapServer.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/dbQueries" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/dbQueries" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/ListGamesHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/ListGamesHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/AuthToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/AuthToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/EventRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/EventRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/FillRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/FillRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/LoadRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/LoadRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/LoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/LoginRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/PersonRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/PersonRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/RegisterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/RegisterRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/ClearResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/ClearResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FMSResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FMSResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FamilyResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FamilyResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FillResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FillResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoadResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoadResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoginResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoginResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/MultipleEventsResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/MultipleEventsResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/MultiplePersonsResponse$MultipleEventsResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/MultiplePersonsResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/MultiplePersonsResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/SingleEventResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/SingleEventResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/SinglePersonResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/SinglePersonResponse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/ClearService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/ClearService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/EventService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/EventService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/FillResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/FillResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/FillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/FillService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoadService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoadService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/PersonService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/RegisterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/RegisterService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/AuthTokenDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/AuthTokenDaoTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/EventDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/EventDaoTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/PersonDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/PersonDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/UserDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/UserDaoTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/FamilyMapServer/Services/ClearServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/FamilyMapServer/Services/ClearServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAOs/AuthTokenDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/AuthTokenDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAOs/EventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/EventDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAOs/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/PersonDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAOs/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/DefaultHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DefaultHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/ClearHandler2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/ClearHandler2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FMSHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FMSHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/LoginHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Helpers/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helpers/FMSError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/FMSError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helpers/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helpers/dbQueries" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/dbQueries" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/AuthToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/EventRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/EventRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/FillRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/FillRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/LoadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/LoadRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/PersonRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/PersonRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Responses/ClearResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/ClearResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Responses/FMSResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/FMSResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Responses/FamilyResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/FamilyResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Responses/FillResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/FillResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Responses/LoadResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/LoadResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Responses/MultipleEventsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/MultipleEventsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Responses/MultiplePersonsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/MultiplePersonsResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/ClearService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/DAOs/AuthTokenDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/DAOs/AuthTokenDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/DAOs/EventDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/DAOs/EventDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/FillResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/FillResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/FillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/FillService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/LoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/LoadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/PersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/RegisterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/DAOs/PersonDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/DAOs/PersonDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Services/ClearServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Services/ClearServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/DAOs/UserDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/DAOs/UserDaoTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +283,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -86,55 +313,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ClearServiceTest.clearPositive">
-    <configuration name="ClearServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserDaoTest">
+    <configuration name="AuthTokenDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FamilyMapServer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Services.*" />
+          <option name="PATTERN" value="DAOs.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Services" />
-      <option name="MAIN_CLASS_NAME" value="Services.ClearServiceTest" />
+      <option name="PACKAGE_NAME" value="DAOs" />
+      <option name="MAIN_CLASS_NAME" value="DAOs.AuthTokenDaoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClearServiceTest.clearNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FamilyMapServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Services" />
-      <option name="MAIN_CLASS_NAME" value="Services.ClearServiceTest" />
-      <option name="METHOD_NAME" value="clearNegative" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClearServiceTest.clearPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FamilyMapServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Services" />
-      <option name="MAIN_CLASS_NAME" value="Services.ClearServiceTest" />
-      <option name="METHOD_NAME" value="clearPositive" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EventDaoTest.deleteAllEventsForUsePositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EventDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FamilyMapServer" />
       <extension name="coverage">
         <pattern>
@@ -144,13 +339,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="DAOs" />
       <option name="MAIN_CLASS_NAME" value="DAOs.EventDaoTest" />
-      <option name="METHOD_NAME" value="deleteAllEventsForUsePositive" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonDaoTest.deleteAllPersonsForUserPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FamilyMapServer" />
       <extension name="coverage">
         <pattern>
@@ -160,19 +354,56 @@
       </extension>
       <option name="PACKAGE_NAME" value="DAOs" />
       <option name="MAIN_CLASS_NAME" value="DAOs.PersonDaoTest" />
-      <option name="METHOD_NAME" value="deleteAllPersonsForUserPositive" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FamilyMapServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DAOs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="DAOs" />
+      <option name="MAIN_CLASS_NAME" value="DAOs.UserDaoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDaoTest.insertPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FamilyMapServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DAOs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="DAOs" />
+      <option name="MAIN_CLASS_NAME" value="DAOs.UserDaoTest" />
+      <option name="METHOD_NAME" value="insertPositive" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.AuthTokenDaoTest" />
+      <item itemvalue="JUnit.EventDaoTest" />
+      <item itemvalue="JUnit.UserDaoTest" />
+      <item itemvalue="JUnit.UserDaoTest.insertPositive" />
+      <item itemvalue="JUnit.PersonDaoTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClearServiceTest.clearPositive" />
-        <item itemvalue="JUnit.ClearServiceTest" />
-        <item itemvalue="JUnit.ClearServiceTest.clearNegative" />
-        <item itemvalue="JUnit.PersonDaoTest.deleteAllPersonsForUserPositive" />
-        <item itemvalue="JUnit.EventDaoTest.deleteAllEventsForUsePositive" />
+        <item itemvalue="JUnit.UserDaoTest" />
+        <item itemvalue="JUnit.PersonDaoTest" />
+        <item itemvalue="JUnit.UserDaoTest.insertPositive" />
+        <item itemvalue="JUnit.EventDaoTest" />
+        <item itemvalue="JUnit.AuthTokenDaoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +431,12 @@
       <workItem from="1578526726890" duration="30000" />
       <workItem from="1578708341080" duration="869000" />
       <workItem from="1578765265739" duration="2321000" />
-      <workItem from="1578777776685" duration="10581000" />
+      <workItem from="1578777776685" duration="13416000" />
+      <workItem from="1580696527687" duration="293000" />
+      <workItem from="1580835293438" duration="3000" />
+      <workItem from="1581708451275" duration="9166000" />
+      <workItem from="1582319458918" duration="3033000" />
+      <workItem from="1582565670710" duration="304000" />
     </task>
     <servers />
   </component>
@@ -227,9 +463,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DAOs/EventDao.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="25" />
+          <url>file://$PROJECT_DIR$/src/Handlers/ClearHandler2.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

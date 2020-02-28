@@ -28,7 +28,7 @@ public class Database {
             {
                 System.out.print("   ");
             }
-            System.out.println("opening connection");
+//            System.out.println("opening connection");
             counter++;
             // Start a transaction
             conn.setAutoCommit(false);
@@ -71,7 +71,7 @@ public class Database {
             {
                 System.out.print("   ");
             }
-            System.out.println("closing connection");
+//            System.out.println("closing connection");
 
             conn.close();
             conn = null;

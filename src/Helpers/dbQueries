@@ -30,7 +30,7 @@ CREATE TABLE event (
     country TEXT NOT NULL,
     city TEXT NOT NULL,
     event_type TEXT NOT NULL,
-    year TEXT NOT NULL
+    year INTEGER NOT NULL
 );
 
 CREATE TABLE authToken (

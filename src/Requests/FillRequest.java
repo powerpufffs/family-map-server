@@ -1,7 +1,7 @@
 package Requests;
 
 /**
- * A request to the /fill endpoint. Generates "generations" of data for a given user.
+ * A Class that details the attributes and methods of an FillRequest.
  */
 public class FillRequest {
 
@@ -11,8 +11,7 @@ public class FillRequest {
     private int generations;
 
     /**
-     * Initializes a FillRequest.
-     *
+     * Constructs a FillRequest
      * @param userName the userName of the user
      * @param generations the number of generation of data to create
      */
@@ -22,35 +21,26 @@ public class FillRequest {
     }
 
     /**
-     * @return the userName of the user for whom to generate the data
+     * Creates a message detailing a successful operation
+     * @param personCount number of Persons that were added
+     * @param eventCount number of Events that were added
+     * @return a message containing how many Persons and Events were added to the database
      */
-    public String getUserName() {
-        return userName;
-    }
-
-    /**
-     * @param userName the userName of the user for whom to generate the data
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    /**
-     * @return the number of generations of data to generate
-     */
-    public int getGenerations() {
-        return generations;
-    }
-
-    /**
-     * @param generations the number of generations of data to generate
-     */
-    public void setGenerations(int generations) {
-        this.generations = generations;
-    }
-
     public static String generateSuccessMessage(int personCount, int eventCount) {
         return "Successfully added " + personCount + " persons and " + " events to the database.";
     }
 
+    public String getUserName() {
+        return userName;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    public int getGenerations() {
+        return generations;
+    }
+
+    public void setGenerations(int generations) {
+        this.generations = generations;
+    }
 }
