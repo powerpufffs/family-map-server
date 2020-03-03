@@ -7,7 +7,7 @@ import Helpers.FMSError;
  */
 public class ClearResponse extends FMSResponse {
 
-    public static final String CLEAR_SUCCESSFUL_MESSAGE = "Clear succeeded";
+    public static final String CLEAR_SUCCESSFUL_MESSAGE = "Clear succeeded.";
     public static final String CLEAR_UNSUCCESSFUL_ERROR = "Clear database unsuccessful.";
 
     /**

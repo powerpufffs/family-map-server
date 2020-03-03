@@ -37,7 +37,6 @@ public class LoginResponse extends FMSResponse {
         this.authToken = authtoken;
     }
 
-
     /**
      * @param authToken an AuthToken object with holds the authorization token
      *                  and other information

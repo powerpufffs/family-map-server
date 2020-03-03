@@ -1,5 +1,6 @@
 package Handlers;
 
+import Helpers.RequestMethod;
 import Requests.EventRequest;
 import Responses.FMSResponse;
 import Responses.MultipleEventsResponse;
@@ -10,62 +11,43 @@ import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 
-public class EventHandler extends FMSHandler {
+public class EventHandler extends FMSHandler2 {
     @Override
-    public FMSResponse handleRequest(HttpExchange exchange)
-            throws IOException, JsonParseException {
-
+    public FMSResponse handleRequest(HttpExchange exchange) throws IOException, JsonParseException {
         String[] endpoints = exchange.getRequestURI().toString().split("/");
-        String tokenId = getAuthToken(exchange);
+        String token = getAuthToken(exchange);
 
-        if(endpoints.length == 4) {
+        if(endpoints.length == 3) {
             return EventService.getSingleEvent(new Requests.EventRequest(
-                endpoints[3],
-                tokenId
+                endpoints[2],
+                token
             ));
         } else {
             return EventService.getAllEvents(new EventRequest(
-                endpoints[2],
-                tokenId
+                "",
+                token
             ));
         }
     }
 
     @Override
-    public boolean isValidMethod(String requestMethod) {
-        return requestMethod.toLowerCase() == "get";
+    public boolean isValidRequestMethod(String method) {
+        return method.equals(RequestMethod.GET.name());
     }
 
     @Override
-    public boolean isValidEndPoint(String endpoint) {
-        String[] components = endpoint.split("/");
-
-        if(components.length < 3 && components[1] == "event") {
+    public boolean isValidEndpoint(String endpoint) {
+        String[] endpoints = endpoint.split("/");
+        if (endpoints.length == 2 && endpoints[1].equals("person")) {
             return true;
-        }
-        if(components.length == 3) {
+        } else if (endpoints.length == 3) {
             return true;
         }
         return false;
     }
 
     @Override
-    public boolean requiresAuthToken() {
+    public boolean requiresAuth() {
         return true;
     }
-
-    @Override
-    public int getStatusCode(FMSResponse response) {
-        String message = response.getMessage();
-        if( message.startsWith(FMSResponse.INVALID_AUTH_TOKEN_ERROR) ||
-            message.startsWith(MultipleEventsResponse.INVALID_PERSONID_ERROR)) {
-            return HttpURLConnection.HTTP_BAD_REQUEST;
-        }
-        if( message.startsWith(MultipleEventsResponse.REQUESTED_PERSON_DOESNT_EXIST_ERROR)) {
-            return HttpURLConnection.HTTP_FORBIDDEN;
-        }
-        return HttpURLConnection.HTTP_INTERNAL_ERROR;
-    }
-
-
 }

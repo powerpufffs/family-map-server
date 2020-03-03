@@ -17,12 +17,11 @@ import java.util.UUID;
 public class LoginService {
     /**
      * Attempts to log a user in.
-     * @param userName userName of the user seeking to log in
-     * @param password password of the user seeking to log in
+     * @param request a request object containing a username and a password
      * @return a loginResponse object containing an error,
      *         if failed and an authToken object if succeeded
      */
-    public static LoginResponse login(String userName, String password) {
+    public static LoginResponse login(LoginRequest request) {
         Database db = new Database();
         User user = null;
         LoginResponse res = null;
@@ -30,13 +29,13 @@ public class LoginService {
         try {
             db.openConnection();
             UserDao userDao = new UserDao(db.getConnection());
-            user = userDao.readOneUser(userName);
+            user = userDao.readOneUser(request.getUserName());
 
             if(user == null) {
                 return new LoginResponse(new FMSError(LoginResponse.INTERNAL_SERVER_ERROR));
             }
 
-            if(password != user.getPassword()) {
+            if(request.getPassword() != user.getPassword()) {
                 return new LoginResponse(new FMSError(LoginResponse.INVALID_OR_MISSING_INPUT_ERROR));
             }
 

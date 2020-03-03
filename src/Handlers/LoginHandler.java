@@ -1,6 +1,7 @@
 package Handlers;
 
 import Helpers.GsonHelper;
+import Helpers.RequestMethod;
 import Requests.LoginRequest;
 import Requests.RegisterRequest;
 import Responses.ClearResponse;
@@ -58,35 +59,26 @@ import java.net.HttpURLConnection;
 //    }
 //}
 
-public class LoginHandler implements HttpHandler {
-    /**
-     * Handles an http request, ensures that the request is valid and invokes Login Service.
-     *
-     * @param exchange represents the HttpExchange object passed from the Server
-     * @throws IOException
-     */
+public class LoginHandler extends FMSHandler2 {
     @Override
-    public void handle(HttpExchange exchange) throws IOException {
-        try {
-            if(!exchange.getRequestMethod().toUpperCase().equals("POST")) {
-                throw new HandlerException("Wrong request method.", HttpURLConnection.HTTP_BAD_REQUEST);
-            }
-            if(!exchange.getRequestURI().toString().equals("/clear")) {
-                throw new HandlerException("Wrong endpoint.", HttpURLConnection.HTTP_NOT_FOUND);
-            }
+    public FMSResponse handleRequest(HttpExchange exchange) throws IOException {
+        LoginRequest request = (LoginRequest) GsonHelper.deserialize(exchange.getRequestBody(), LoginRequest.class);
+        exchange.getRequestBody().close();
+        return LoginService.login(request);
+    }
 
-            ClearResponse res = ClearService.clear();
+    @Override
+    public boolean isValidRequestMethod(String method) {
+        return method.equals(RequestMethod.POST.name());
+    }
 
-            if(res.getError() != null) {
-                throw new HandlerException("Clearing database failed.", HttpURLConnection.HTTP_INTERNAL_ERROR);
-            }
+    @Override
+    public boolean isValidEndpoint(String endpoint) {
+        return endpoint.equals("/user/login");
+    }
 
-            exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
-            exchange.getResponseBody().close();
-
-        } catch (HandlerException e) {
-            exchange.sendResponseHeaders(e.getResponseCode(), 0);
-            exchange.getResponseBody().close();
-        }
+    @Override
+    public boolean requiresAuth() {
+        return false;
     }
 }
