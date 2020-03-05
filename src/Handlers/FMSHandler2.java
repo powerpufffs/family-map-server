@@ -12,7 +12,7 @@ import java.util.List;
 
 public abstract class FMSHandler2 implements HttpHandler {
     @Override
-    public final void handle(HttpExchange exchange) throws IOException {
+    public void handle(HttpExchange exchange) throws IOException {
         if (!isValidRequestMethod(exchange.getRequestMethod())) {
             sendResponseWithMessage(
                 exchange,
@@ -68,19 +68,19 @@ public abstract class FMSHandler2 implements HttpHandler {
     public abstract boolean isValidEndpoint(String endpoint);
     public abstract boolean requiresAuth();
 
-    private void sendResponseWithMessage(HttpExchange exchange, int code, String message) throws IOException {
+    protected void sendResponseWithMessage(HttpExchange exchange, int code, String message) throws IOException {
         String jsonStr = "{ \"message\":" + String.format("\"%s\"", message) + "}";
         exchange.getResponseHeaders().set("Content-Type", "application/json");
         sendResponse(exchange, code, jsonStr);
     }
 
-    private void sendResponse(HttpExchange exchange, int code, String jsonStr) throws IOException {
+    protected void sendResponse(HttpExchange exchange, int code, String jsonStr) throws IOException {
         exchange.sendResponseHeaders(code, jsonStr == null ? 0 : jsonStr.length());
         sendJson(jsonStr, exchange.getResponseBody());
         exchange.getResponseBody().close();
     }
 
-    private void sendJson(String jsonStr, OutputStream os) throws IOException {
+    protected void sendJson(String jsonStr, OutputStream os) throws IOException {
         OutputStreamWriter osw = new OutputStreamWriter(os);
         BufferedWriter bw = new BufferedWriter(osw);
         bw.write(jsonStr);

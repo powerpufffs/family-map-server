@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86233ca5-d9bd-43c2-a84c-7309d1a624d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Handlers/FMSHandler2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Helpers/RequestMethod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/ClearHandler2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/ClearHandler2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/EventHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoadHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoadHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/PersonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/PersonHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/ClearResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/ClearResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/ClearService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/ClearService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/ClearHandler2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/ClearHandler2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/EventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/LoadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/LoadHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/PersonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/PersonHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/RegisterHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/ClearResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/ClearResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Responses/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/LoginResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/DefaultHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/DefaultHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FMSHandler2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FMSHandler2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoginHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoginHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/RegisterHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/RegisterHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoginResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoginResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/DefaultHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DefaultHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FMSHandler2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FMSHandler2.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -211,6 +202,7 @@
       <workItem from="1582565670710" duration="304000" />
       <workItem from="1583172737463" duration="6747000" />
       <workItem from="1583190590377" duration="7000" />
+      <workItem from="1583435967821" duration="950000" />
     </task>
     <servers />
   </component>
@@ -232,17 +224,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Handlers/FMSHandler2.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FamilyMapServer$Server.ic" NAME="Server Coverage Results" MODIFIED="1583175751755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
