@@ -152,6 +152,7 @@ public class Database {
             stmt.executeUpdate(sql + " person");
             stmt.executeUpdate(sql + " event");
             stmt.executeUpdate(sql + " authToken");
+            createTables();
         } catch (SQLException e) {
             throw new DataAccessException("SQL Error encountered while clearing tables");
         }

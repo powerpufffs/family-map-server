@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.UUID;
+
 /**
  * A Class that defines the attributes and methods of a Person.
  */
@@ -9,9 +11,9 @@ public class Person {
     private String firstName;
     private String lastName;
     private String gender;
-    private String fatherId;
-    private String motherId;
-    private String spouseId;
+    private String fatherId = null;
+    private String motherId = null;
+    private String spouseId = null;
 
     /**
      * A constructor that creates a Person.
@@ -42,6 +44,15 @@ public class Person {
         this.fatherId = fatherId;
         this.motherId = motherId;
         this.spouseId = spouseId;
+    }
+
+    //Create Person from a User object
+    public Person(User user) {
+        this.associatedUsername = user.getUserName();
+        this.personID = UUID.randomUUID().toString();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.gender = user.getGender();
     }
 
     public void setPersonId(String personID) {

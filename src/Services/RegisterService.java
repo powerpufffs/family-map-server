@@ -7,7 +7,10 @@ import Helpers.DataAccessException;
 import Helpers.Database;
 import Helpers.FMSError;
 import Models.AuthToken;
+import Models.Person;
 import Models.User;
+import Requests.FillRequest;
+import Requests.LoginRequest;
 import Requests.RegisterRequest;
 import Responses.FMSResponse;
 import Responses.LoginResponse;
@@ -63,23 +66,19 @@ public class RegisterService {
                 request.getGender(),
                 UUID.randomUUID().toString()
             );
+            userDao.insert(user);
+            personDao.insert(new Person(user));
 
             // Generate 4 generations of ancestor data
-            // TODO: generate ancestor data on register
+            FillResponse fillRes = FillService.fill(new FillRequest(
+                user.getUserName(),
+  4
+            ));
 
-            //Log user in
-            AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
-            String tokenId = null;
-            do {
-                tokenId = UUID.randomUUID().toString();
-            } while (authTokenDao.readAuthToken(tokenId) != null);
-
-            db.closeConnection(true);
-
-            return new LoginResponse(
-                LoginResponse.SUCCESSFUL_LOGIN_MESSAGE,
-                new AuthToken(tokenId, user.getPersonId(), user.getUserName())
-            );
+            return LoginService.login(new LoginRequest(
+                user.getUserName(),
+                user.getPassword()
+            ));
         } catch(DataAccessException e) {
             return new LoginResponse(new FMSError(e.getMessage()));
         } finally {

@@ -18,7 +18,7 @@ public class FMSResponse {
     public static final String GENERAL_SUCCESS_MESSAGE = "Success";
 
     private String message;
-    private transient FMSError error;
+    private FMSError error;
 
     /**
      * Constructs an error FMSResponse
