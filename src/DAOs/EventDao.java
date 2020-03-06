@@ -5,6 +5,7 @@ import Models.AuthToken;
 import Models.Event;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,9 +31,6 @@ public class EventDao {
     public void insert(Event event) throws DataAccessException {
         String sql = "INSERT INTO event (event_id, associated_userName, person_id, latitude, "
                 + "longitude, country, city, event_type, year) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        PreparedStatement statement = null;
-        int i = 1;
 
         try(PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, event.getEventId());
@@ -98,7 +96,7 @@ public class EventDao {
         if(authToken == null)
             throw new DataAccessException("Error. authToken was null when attempting to read one authToken.");
 
-        List<Event> eventList = null;
+        List<Event> eventList = new ArrayList<Event>();
 
         try(
             Statement stmt = connection.createStatement();

@@ -19,11 +19,18 @@ public class FMSResponse {
 
     private String message;
     private FMSError error;
+    private int code = 0;
 
     /**
      * Constructs an error FMSResponse
      * @param error error sent when unsuccessful.
      */
+    public FMSResponse(FMSError error, int code) {
+        this.message = null;
+        this.error = error;
+        this.code = code;
+    }
+
     public FMSResponse(FMSError error) {
         this.message = null;
         this.error = error;
@@ -53,6 +60,9 @@ public class FMSResponse {
     }
     public FMSError getError() {
         return this.error;
+    }
+    public int getCode() {
+        return code;
     }
 
     /**

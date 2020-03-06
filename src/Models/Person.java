@@ -49,7 +49,7 @@ public class Person {
     //Create Person from a User object
     public Person(User user) {
         this.associatedUsername = user.getUserName();
-        this.personID = UUID.randomUUID().toString();
+        this.personID = user.getPersonId();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.gender = user.getGender();

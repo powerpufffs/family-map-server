@@ -5,6 +5,7 @@ import Models.AuthToken;
 import Models.Person;
 
 import javax.swing.plaf.nimbus.State;
+import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
@@ -103,7 +104,7 @@ public class PersonDao {
         if(authToken == null)
             throw new DataAccessException("Error. authToken was null when attempting to read one authToken");
 
-        List<Person> personList = null;
+        List<Person> personList = new ArrayList<Person>();
 
         try(
             Statement stmt = connection.createStatement();

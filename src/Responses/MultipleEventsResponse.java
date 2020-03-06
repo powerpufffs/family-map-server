@@ -3,6 +3,8 @@ package Responses;
 import Helpers.FMSError;
 import Models.Event;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +15,7 @@ public class MultipleEventsResponse extends FMSResponse {
     public static final String INVALID_PERSONID_ERROR = "Invalid personID parameter";
     public static final String REQUESTED_PERSON_DOESNT_EXIST_ERROR = "Requested person does not belong to this user";
 
-    private List<SingleEventResponse> data;
+    private List<SingleEventResponse> data = new ArrayList<SingleEventResponse>();
 
     /**
      * Constructs a success MultipleEventsResponse

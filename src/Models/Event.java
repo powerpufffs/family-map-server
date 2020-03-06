@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.UUID;
+
 /**
  * A Class that defines the attributes and methods of an Event.
  */
@@ -45,7 +47,7 @@ public class Event {
      */
     public Event clone() {
         return new Event(
-            this.eventId,
+            UUID.randomUUID().toString(),
             this.associatedUsername,
             null,
             this.latitude,

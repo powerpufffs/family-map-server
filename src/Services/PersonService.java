@@ -36,15 +36,18 @@ public class PersonService {
             AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
             AuthToken authToken = authTokenDao.readAuthToken(request.getAuthToken());
 
-            if(authToken.getUserName() == null) {
+            if(authToken == null) {
                 return new SinglePersonResponse(new FMSError(FMSResponse.INVALID_AUTH_TOKEN_ERROR));
             }
 
             PersonDao personDao = new PersonDao(db.getConnection());
-            Person person = personDao.readOnePersons(authToken.getPersonId());
+            Person person = personDao.readOnePersons(request.getPersonId());
 
-            if(person == null) {
+            if (person == null) {
                 return new SinglePersonResponse(new FMSError(FMSResponse.INTERNAL_SERVER_ERROR));
+            }
+            if (!authToken.getUserName().equals(person.getAssociatedUsername())) {
+                return new SinglePersonResponse(new FMSError(SinglePersonResponse.REQUESTED_PERSON_DOESNT_BELONG_TO_USER));
             }
 
             response = new SinglePersonResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, person);
@@ -77,18 +80,18 @@ public class PersonService {
             AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
             AuthToken authToken = authTokenDao.readAuthToken(request.getAuthToken());
 
-            if(authToken.getUserName() == null) {
+            if(authToken == null) {
                 return new MultiplePersonsResponse(new FMSError(FMSResponse.INVALID_AUTH_TOKEN_ERROR));
             }
 
             PersonDao personDao = new PersonDao(db.getConnection());
-            Person[] person = personDao.readAllPersons(authToken);
+            Person[] persons = personDao.readAllPersons(authToken);
 
-            if(person == null) {
+            if(persons == null) {
                 return new MultiplePersonsResponse(new FMSError(FMSResponse.INTERNAL_SERVER_ERROR));
             }
 
-            response = new MultiplePersonsResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, person);
+            response = new MultiplePersonsResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, persons);
             if(response != null) {
                 db.closeConnection(true);
             } else {

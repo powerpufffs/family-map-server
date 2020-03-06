@@ -11,12 +11,12 @@ import Models.Event;
 import Models.Person;
 import Models.User;
 import Responses.ClearResponse;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
-
-//TODO: figure out why db is getting locked here
 
 public class ClearServiceTest {
     private Database db;
@@ -25,50 +25,51 @@ public class ClearServiceTest {
     private Event event;
     private AuthToken authToken;
 
-    public void setup() throws DataAccessException {
+    @BeforeEach
+    void setup() throws DataAccessException {
         db = new Database();
         this.user = new User(
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            "m",
-            UUID.randomUUID().toString()
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                "m",
+                UUID.randomUUID().toString()
         );
         this.person = new Person(
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            "m",
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString()
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                "m",
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString()
         );
         this.event = new Event(
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            12.123f,
-            13f,
-            "Korean",
-            "Seoul",
-            "Baptism",
-            2010
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                12.123f,
+                13f,
+                "Korean",
+                "Seoul",
+                "Baptism",
+                2010
         );
         this.authToken = new AuthToken(
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString(),
-            UUID.randomUUID().toString()
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString(),
+                UUID.randomUUID().toString()
         );
-
         db.openConnection();
-        db.createTables();
+        db.clearTables();
         db.closeConnection(true);
     }
 
-    public void tearDown() throws Exception {
+    @AfterEach
+    void tearDown() throws Exception {
         db.openConnection();
         db.clearTables();
         db.closeConnection(true);
@@ -76,8 +77,6 @@ public class ClearServiceTest {
 
     @Test
     public void clearPositive() throws Exception {
-        setup();
-
         UserDao userDao = new UserDao(db.getConnection());
         PersonDao personDao = new PersonDao(db.getConnection());
         AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
@@ -105,13 +104,10 @@ public class ClearServiceTest {
         assertThrows(DataAccessException.class, () -> {eventDao.readOneEvent(event.getEventId());});
 
         db.closeConnection(true);
-
-        tearDown();
     }
 
     @Test
     public void clearNegative() throws Exception {
-        setup();
         db.openConnection();
 
         UserDao userDao = new UserDao(db.getConnection());
@@ -130,10 +126,8 @@ public class ClearServiceTest {
         assertNotNull(authTokenDao.readAuthToken(authToken.getTokenId()));
         assertNotNull(eventDao.readOneEvent(event.getEventId()));
 
+        db.closeConnection(true);
         ClearResponse response = ClearService.clear();
         System.out.println(response.toString());
-
-        db.closeConnection(true);
-        tearDown();
     }
 }

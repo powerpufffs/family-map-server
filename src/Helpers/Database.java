@@ -28,7 +28,7 @@ public class Database {
             {
                 System.out.print("   ");
             }
-//            System.out.println("opening connection");
+            System.out.println("opening connection");
             counter++;
             // Start a transaction
             conn.setAutoCommit(false);
@@ -71,7 +71,7 @@ public class Database {
             {
                 System.out.print("   ");
             }
-//            System.out.println("closing connection");
+            System.out.println("closing connection");
 
             conn.close();
             conn = null;
@@ -82,7 +82,6 @@ public class Database {
     }
 
     public void createTables() throws DataAccessException {
-
         try (Statement stmt = conn.createStatement()){
             //First lets open our connection to our database.
 
@@ -152,6 +151,7 @@ public class Database {
             stmt.executeUpdate(sql + " person");
             stmt.executeUpdate(sql + " event");
             stmt.executeUpdate(sql + " authToken");
+            stmt.close();
             createTables();
         } catch (SQLException e) {
             throw new DataAccessException("SQL Error encountered while clearing tables");

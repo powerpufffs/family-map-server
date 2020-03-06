@@ -16,7 +16,6 @@ import Responses.SingleEventResponse;
  * A Class that details the attributes and methods of a EventService.
  */
 public class EventService {
-
     /**
      * Returns a single Event that's associated with the AuthToken and EventId contained in the EventRequest.
      * @return a SingleEventResponse containing the results of the method.
@@ -37,15 +36,22 @@ public class EventService {
             AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
             AuthToken authToken = authTokenDao.readAuthToken(request.getAuthToken());
 
-            if(authToken.getUserName() == null) {
-                return new SingleEventResponse(new FMSError(FMSResponse.INVALID_AUTH_TOKEN_ERROR));
+            if(authToken == null) {
+                db.closeConnection(false);
+                return new SingleEventResponse(new FMSError(SingleEventResponse.INVALID_AUTH_TOKEN_ERROR));
             }
 
             EventDao eventDao = new EventDao(db.getConnection());
-            Event event = eventDao.readOneEvent(authToken.getPersonId());
+            Event event = eventDao.readOneEvent(request.getEventId());
 
             if(event == null) {
-                return new SingleEventResponse(new FMSError(FMSResponse.INTERNAL_SERVER_ERROR));
+                db.closeConnection(false);
+                return new SingleEventResponse(new FMSError(SingleEventResponse.INVALID_EVENT_ID));
+            }
+
+            if(!event.getAssociatedUsername().equals(authToken.getUserName())) {
+                db.closeConnection(false);
+                return new SingleEventResponse(new FMSError(SingleEventResponse.REQUESTED_EVENT_DOESNT_BELONG_TO_USER));
             }
 
             response = new SingleEventResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, event);
@@ -77,7 +83,7 @@ public class EventService {
             AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
             AuthToken authToken = authTokenDao.readAuthToken(request.getAuthToken());
 
-            if(authToken.getUserName() == null) {
+            if(authToken == null) {
                 return new MultipleEventsResponse(new FMSError(FMSResponse.INVALID_AUTH_TOKEN_ERROR));
             }
 

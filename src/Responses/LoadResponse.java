@@ -5,6 +5,8 @@ import Models.Event;
 import Models.Person;
 import Models.User;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,9 +14,9 @@ import java.util.List;
  */
 public class LoadResponse extends FMSResponse {
 
-    private List<User> users;
-    private List<Person> persons;
-    private List<Event> events;
+    private List<User> users = new ArrayList<User>();
+    private List<Person> persons = new ArrayList<Person>();
+    private List<Event> events = new ArrayList<Event>();
 
     /**
      * Constructs an error LoadResponse

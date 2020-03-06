@@ -34,14 +34,17 @@ public class FillService {
         FillResponse response = null;
 
         try {
+            System.out.println("Begin Filling");
             db.openConnection();
             UserDao userDao = new UserDao(db.getConnection());
             user = userDao.readOneUser(request.getUserName());
 
             if(user == null) {
+                db.closeConnection(true);
                 return new FillResponse(new FMSError(FillResponse.INVALID_USER_OR_GENERATIONS_ERROR));
             }
             if(request.getGenerations() < 0) {
+                db.closeConnection(true);
                 return new FillResponse(new FMSError(FillResponse.INVALID_REQUEST_DATA_ERROR));
             }
 
@@ -49,6 +52,7 @@ public class FillService {
             Person person = personDao.readOnePersons(user.getPersonId());
 
             if(person == null) {
+                db.closeConnection(true);
                 return new FillResponse(new FMSError(FillResponse.INTERNAL_SERVER_ERROR));
             }
 
@@ -81,24 +85,21 @@ public class FillService {
 
             for(Object object: ancestorData) {
                 if(object instanceof Event) {
-                    personsCreated++;
+                    eventsCreated++;
+                    System.out.println(eventsCreated);
                     eventDao.insert((Event) object);
                 } else if(object instanceof Person) {
-                    eventsCreated++;
+                    personsCreated++;
                     personDao.insert((Person) object);
                 }
             }
 
+            System.out.println("End Filling");
             db.closeConnection(true);
-            response = new FillResponse(personsCreated, eventsCreated);
+            return new FillResponse(personsCreated, eventsCreated);
         } catch(DataAccessException e) {
             return new FillResponse(new FMSError(FillResponse.INTERNAL_SERVER_ERROR));
-        } finally {
-            try {
-                db.closeConnection(false);
-            } catch (DataAccessException e) { }
         }
-        return response;
     }
 
     /**

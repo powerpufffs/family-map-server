@@ -1,5 +1,7 @@
 package Helpers;
 
+import com.google.gson.JsonParseException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,7 +22,7 @@ public class NameGenerator {
         try {
             loadNames();
         } catch (IOException e) {
-            System.out.println("failed to load locations");
+            System.out.println("failed to load names");
         }
     }
 
@@ -47,6 +49,8 @@ public class NameGenerator {
             maleNames = ((Names) GsonHelper.deserialize(maleStream, Names.class)).data;
             femaleNames = ((Names) GsonHelper.deserialize(femaleStream, Names.class)).data;
             lastNames = ((Names) GsonHelper.deserialize(lastNameStream, Names.class)).data;
+        } catch (JsonParseException e) {
+            throw e;
         }
 
     }

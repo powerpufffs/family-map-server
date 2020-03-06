@@ -26,7 +26,7 @@ public class PersonHandler extends FMSHandler2 {
                 token
             ));
         } else {
-            return PersonService.getAllPersons(new PersonRequest(
+            return PersonService.getSinglePerson(new PersonRequest(
                 endpoints[2],
                 token
             ));

@@ -35,10 +35,8 @@ public class LocationGenerator {
         final File LOCATIONS_FILE = new File("data/places.json");
 
         try(InputStream locationStream = new FileInputStream(LOCATIONS_FILE)) {
-            Locations locationsVar =
-                    (Locations) GsonHelper.deserialize(locationStream, Locations.class);
-
-            locations = locationsVar.data;
+            locations =
+                    ((Locations) GsonHelper.deserialize(locationStream, Locations.class)).data;
         } catch (JsonParseException e) {
            throw e;
         }

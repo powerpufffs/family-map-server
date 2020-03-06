@@ -38,7 +38,7 @@ public class EventHandler extends FMSHandler2 {
     @Override
     public boolean isValidEndpoint(String endpoint) {
         String[] endpoints = endpoint.split("/");
-        if (endpoints.length == 2 && endpoints[1].equals("person")) {
+        if (endpoints.length == 2 && endpoints[1].equals("event")) {
             return true;
         } else if (endpoints.length == 3) {
             return true;

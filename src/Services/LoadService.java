@@ -15,18 +15,7 @@ import Responses.LoadResponse;
 
 import java.util.List;
 
-/**
- * A Class that specifies the attributes and methods of a LoadService.
- */
 public class LoadService {
-
-    /**
-     * Clears all data from the database and then loads the
-     * posted user, person and event data into the database.
-     * @param request a LoadRequest containing the data necessary
-     *                to complete the method
-     * @return a LoadResponse
-     */
     public static LoadResponse load(LoadRequest request) {
         Database db = new Database();
         List<User> users = request.getUsers();

@@ -3,6 +3,8 @@ package Responses;
 import Helpers.FMSError;
 import Models.Event;
 import Models.Person;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +15,7 @@ public class MultiplePersonsResponse extends FMSResponse {
     public static final String INVALID_PERSONID_ERROR = "Invalid personID parameter";
     public static final String REQUESTED_PERSON_DOESNT_EXIST_ERROR = "Requested person does not belong to this user";
 
-    private List<SinglePersonResponse> data;
+    private List<SinglePersonResponse> data = new ArrayList<SinglePersonResponse>();
 
     /**
      * Constructs an error MultiplePersonsResponse
@@ -32,7 +34,7 @@ public class MultiplePersonsResponse extends FMSResponse {
      * @param persons array of Person
      */
     public MultiplePersonsResponse(String message, Person[] persons) {
-        super(message, null);
+        super(null, null);
         for (Person person : persons) {
             data.add(new SinglePersonResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, person));
         }

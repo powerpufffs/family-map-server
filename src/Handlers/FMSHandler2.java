@@ -13,6 +13,8 @@ import java.util.List;
 public abstract class FMSHandler2 implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        exchange.getResponseHeaders().set("Content-Type", "application/json");
+
         if (!isValidRequestMethod(exchange.getRequestMethod())) {
             sendResponseWithMessage(
                 exchange,
@@ -29,7 +31,7 @@ public abstract class FMSHandler2 implements HttpHandler {
             );
             return;
         }
-        if (requiresAuth() && getAuthToken(exchange) != null) {
+        if (requiresAuth() && getAuthToken(exchange) == null) {
             sendResponseWithMessage(
                 exchange,
                 HttpURLConnection.HTTP_UNAUTHORIZED,
@@ -41,11 +43,19 @@ public abstract class FMSHandler2 implements HttpHandler {
         FMSResponse res = null;
         try {
             res = handleRequest(exchange);
+            if (res.getError() != null) {
+                sendResponseWithMessage(
+                    exchange,
+                    res.getCode() == 0 ? HttpURLConnection.HTTP_INTERNAL_ERROR : res.getCode(),
+                    res.getError().getMessage() == null ? "There was an error in the server." : res.getError().getMessage()
+                );
+            }
             sendResponse(
                 exchange,
                 HttpURLConnection.HTTP_OK,
                 GsonHelper.serialize(res)
             );
+            return;
         } catch (IOException e) {
             sendResponseWithMessage(
                 exchange,
@@ -70,7 +80,6 @@ public abstract class FMSHandler2 implements HttpHandler {
 
     protected void sendResponseWithMessage(HttpExchange exchange, int code, String message) throws IOException {
         String jsonStr = "{ \"message\":" + String.format("\"%s\"", message) + "}";
-        exchange.getResponseHeaders().set("Content-Type", "application/json");
         sendResponse(exchange, code, jsonStr);
     }
 
