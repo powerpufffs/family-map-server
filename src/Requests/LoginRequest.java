@@ -1,7 +1,5 @@
 package Requests;
 
-import Helpers.FMSError;
-
 /**
  * A Class that specifies the attributes and methods of a LoginRequest.
  */

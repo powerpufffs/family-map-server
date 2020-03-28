@@ -8,7 +8,12 @@ import Helpers.FMSError;
 import Models.AuthToken;
 import Models.Person;
 import Requests.PersonRequest;
-import Responses.*;
+import Responses.FMSResponse;
+import Responses.MultipleEventsResponse;
+import Responses.MultiplePersonsResponse;
+import Responses.SinglePersonResponse;
+
+import java.net.HttpURLConnection;
 
 /**
  * A Class that specifies the attributes and methods of a PersonService.
@@ -37,17 +42,29 @@ public class PersonService {
             AuthToken authToken = authTokenDao.readAuthToken(request.getAuthToken());
 
             if(authToken == null) {
-                return new SinglePersonResponse(new FMSError(FMSResponse.INVALID_AUTH_TOKEN_ERROR));
+                db.closeConnection(false);
+                return new SinglePersonResponse(new FMSError(
+                    SinglePersonResponse.INVALID_AUTH_TOKEN_ERROR),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             PersonDao personDao = new PersonDao(db.getConnection());
             Person person = personDao.readOnePersons(request.getPersonId());
 
             if (person == null) {
-                return new SinglePersonResponse(new FMSError(FMSResponse.INTERNAL_SERVER_ERROR));
+                db.closeConnection(false);
+                return new SinglePersonResponse(new
+                    FMSError(SinglePersonResponse.PERSON_DOESNT_EXIST_ERROR),
+                    HttpURLConnection.HTTP_INTERNAL_ERROR
+                );
             }
             if (!authToken.getUserName().equals(person.getAssociatedUsername())) {
-                return new SinglePersonResponse(new FMSError(SinglePersonResponse.REQUESTED_PERSON_DOESNT_BELONG_TO_USER));
+                db.closeConnection(false);
+                return new SinglePersonResponse(new FMSError(
+                    SinglePersonResponse.REQUESTED_PERSON_DOESNT_BELONG_TO_USER),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             response = new SinglePersonResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, person);
@@ -81,13 +98,18 @@ public class PersonService {
             AuthToken authToken = authTokenDao.readAuthToken(request.getAuthToken());
 
             if(authToken == null) {
-                return new MultiplePersonsResponse(new FMSError(FMSResponse.INVALID_AUTH_TOKEN_ERROR));
+                db.closeConnection(false);
+                return new MultiplePersonsResponse(new FMSError(
+                    FMSResponse.INVALID_AUTH_TOKEN_ERROR),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             PersonDao personDao = new PersonDao(db.getConnection());
             Person[] persons = personDao.readAllPersons(authToken);
 
             if(persons == null) {
+                db.closeConnection(false);
                 return new MultiplePersonsResponse(new FMSError(FMSResponse.INTERNAL_SERVER_ERROR));
             }
 

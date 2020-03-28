@@ -31,5 +31,4 @@ public class PersonRequest {
     public void setAuthToken(String authToken) {
         this.authToken = authToken;
     }
-
 }

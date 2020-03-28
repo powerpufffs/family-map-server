@@ -1,16 +1,12 @@
 package Handlers;
 
-import DAOs.UserDao;
-import Helpers.DataAccessException;
-import Helpers.Database;
-import Helpers.FMSError;
+import Helpers.RequestMethod;
 import Requests.FillRequest;
 import Responses.FMSResponse;
-import Services.FillResponse;
 import Services.FillService;
+
 import com.google.gson.JsonParseException;
 import com.sun.net.httpserver.HttpExchange;
-import org.sqlite.util.StringUtils;
 
 import java.io.IOException;
 
@@ -25,20 +21,20 @@ public class FillHandler extends FMSHandler {
     }
 
     @Override
-    public boolean isValidMethod(String requestMethod) {
-        return requestMethod.toLowerCase() == "post";
+    public boolean isValidRequestMethod(String method) {
+        return method.toLowerCase().equals(RequestMethod.POST.name().toLowerCase());
     }
 
     @Override
-    public boolean isValidEndPoint(String endpoint) {
+    public boolean isValidEndpoint(String endpoint) {
         String[] components = endpoint.split("/");
 
         if( components.length < 2 ||
             components.length > 4 ||
-            components[1] != "fill" ) {
+            !components[1].equals("fill") ) {
             return false;
         }
-        if(components.length > 3 && !components[4].matches("-?\\d+")) {
+        if(components.length > 3 && !components[3].matches("-?\\d+")) {
             return false;
         }
 
@@ -46,14 +42,10 @@ public class FillHandler extends FMSHandler {
     }
 
     @Override
-    public boolean requiresAuthToken() {
+    public boolean requiresAuth() {
         return false;
     }
 
-    @Override
-    public int getStatusCode(FMSResponse response) {
-        return 0;
-    }
 
     private int findGenerations(String endpoint) {
         String[] components = endpoint.split("/");

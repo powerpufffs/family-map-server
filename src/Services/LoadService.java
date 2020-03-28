@@ -10,7 +10,6 @@ import Models.Event;
 import Models.Person;
 import Models.User;
 import Requests.LoadRequest;
-import Responses.FMSResponse;
 import Responses.LoadResponse;
 
 import java.util.List;
@@ -21,9 +20,9 @@ public class LoadService {
         List<User> users = request.getUsers();
         List<Person> persons = request.getPersons();
         List<Event> events = request.getEvents();
-        LoadResponse response = null;
 
         try {
+            db.openConnection();
             db.clearTables();
 
             //Load users
@@ -44,10 +43,17 @@ public class LoadService {
                 eventDao.insert(event);
             }
 
-            response = new LoadResponse(users, persons, events);
+            db.closeConnection(true);
+            return new LoadResponse(users.size(), persons.size(), events.size());
         } catch(DataAccessException e) {
-            return new LoadResponse(new FMSError(FMSResponse.INTERNAL_SERVER_ERROR));
+            try {
+                db.closeConnection(false);
+            } catch (DataAccessException ex) { }
+            return new LoadResponse(new FMSError(e.getMessage().equals(
+                DataAccessException.FIELD_WAS_NULL)
+                ? LoadResponse.INVALID_REQUEST_DATA
+                : LoadResponse.INTERNAL_SERVER_ERROR
+            ));
         }
-        return response;
     }
 }

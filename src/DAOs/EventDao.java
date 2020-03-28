@@ -29,11 +29,14 @@ public class EventDao {
      * @throws DataAccessException
      */
     public void insert(Event event) throws DataAccessException {
+        if (!event.requiredFieldsAreNotNull())
+            throw new DataAccessException(DataAccessException.FIELD_WAS_NULL);
+
         String sql = "INSERT INTO event (event_id, associated_userName, person_id, latitude, "
                 + "longitude, country, city, event_type, year) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try(PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, event.getEventId());
+            stmt.setString(1, event.getEventID());
             stmt.setString(2, event.getAssociatedUsername());
             stmt.setString(3, event.getPersonId());
             stmt.setFloat(4, event.getLatitude());
@@ -96,12 +99,12 @@ public class EventDao {
         if(authToken == null)
             throw new DataAccessException("Error. authToken was null when attempting to read one authToken.");
 
+        String sql = "SELECT * FROM event WHERE associated_userName = ?";
         List<Event> eventList = new ArrayList<Event>();
 
-        try(
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM event")
-        ) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, authToken.getUserName());
+            ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
                 eventList.add(new Event(
                     rs.getString("event_id"),

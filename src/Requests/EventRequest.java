@@ -5,24 +5,24 @@ package Requests;
  */
 public class EventRequest {
 
-    private String eventId;
+    private String eventID;
     private String authToken;
 
     /**
      * Constructs an EventRequest
-     * @param eventId an id for the event
+     * @param eventID an id for the event
      * @param authToken an authToken for the event
      */
-    public EventRequest(String eventId, String authToken) {
-        this.eventId = eventId;
+    public EventRequest(String eventID, String authToken) {
+        this.eventID = eventID;
         this.authToken = authToken;
     }
 
-    public String getEventId() {
-        return this.eventId;
+    public String getEventID() {
+        return this.eventID;
     }
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    public void setEventID(String eventID) {
+        this.eventID = eventID;
     }
 
     public String getAuthToken() {

@@ -12,6 +12,8 @@ import Responses.FMSResponse;
 import Responses.MultipleEventsResponse;
 import Responses.SingleEventResponse;
 
+import java.net.HttpURLConnection;
+
 /**
  * A Class that details the attributes and methods of a EventService.
  */
@@ -22,10 +24,16 @@ public class EventService {
      */
     public static SingleEventResponse getSingleEvent(EventRequest request) {
         if(request.getAuthToken() == null) {
-            return new SingleEventResponse(new FMSError(MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR));
+            return new SingleEventResponse(new FMSError(
+                SingleEventResponse.INVALID_AUTH_TOKEN_ERROR),
+                HttpURLConnection.HTTP_BAD_REQUEST
+            );
         }
-        if(request.getEventId() == null) {
-            return new SingleEventResponse(new FMSError(MultipleEventsResponse.INVALID_PERSONID_ERROR));
+        if(request.getEventID() == null) {
+            return new SingleEventResponse(new FMSError(
+                SingleEventResponse.INVALID_AUTH_TOKEN_ERROR),
+                HttpURLConnection.HTTP_BAD_REQUEST
+            );
         }
 
         Database db = new Database();
@@ -38,30 +46,43 @@ public class EventService {
 
             if(authToken == null) {
                 db.closeConnection(false);
-                return new SingleEventResponse(new FMSError(SingleEventResponse.INVALID_AUTH_TOKEN_ERROR));
+                return new SingleEventResponse(new FMSError(
+                    SingleEventResponse.INVALID_AUTH_TOKEN_ERROR),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             EventDao eventDao = new EventDao(db.getConnection());
-            Event event = eventDao.readOneEvent(request.getEventId());
+            Event event = eventDao.readOneEvent(request.getEventID());
 
             if(event == null) {
                 db.closeConnection(false);
-                return new SingleEventResponse(new FMSError(SingleEventResponse.INVALID_EVENT_ID));
+                return new SingleEventResponse(new FMSError(
+                    SingleEventResponse.INVALID_EVENT_ID),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             if(!event.getAssociatedUsername().equals(authToken.getUserName())) {
                 db.closeConnection(false);
-                return new SingleEventResponse(new FMSError(SingleEventResponse.REQUESTED_EVENT_DOESNT_BELONG_TO_USER));
+                return new SingleEventResponse(new FMSError(
+                    SingleEventResponse.REQUESTED_EVENT_DOESNT_BELONG_TO_USER),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             response = new SingleEventResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, event);
-            if(response != null) {
+            if(response != null && response.getError() == null) {
                 db.closeConnection(true);
             } else {
                 db.closeConnection(false);
             }
         } catch(DataAccessException e) {
-            return new SingleEventResponse(new FMSError(FMSResponse.INTERNAL_SERVER_ERROR));
+            return new SingleEventResponse(new FMSError(
+                FMSResponse.INTERNAL_SERVER_ERROR),
+                HttpURLConnection.HTTP_INTERNAL_ERROR
+            );
+
         }
         return response;
     }
@@ -72,7 +93,10 @@ public class EventService {
      */
     public static MultipleEventsResponse getAllEvents(EventRequest request) {
         if(request.getAuthToken() == null) {
-            return new MultipleEventsResponse(new FMSError(MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR));
+            return new MultipleEventsResponse(new FMSError(
+                MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR),
+                HttpURLConnection.HTTP_BAD_REQUEST
+            );
         }
         Database db = new Database();
         MultipleEventsResponse response = null;
@@ -84,24 +108,35 @@ public class EventService {
             AuthToken authToken = authTokenDao.readAuthToken(request.getAuthToken());
 
             if(authToken == null) {
-                return new MultipleEventsResponse(new FMSError(FMSResponse.INVALID_AUTH_TOKEN_ERROR));
+                db.closeConnection(false);
+                return new MultipleEventsResponse(new FMSError(
+                    MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             EventDao eventDao = new EventDao(db.getConnection());
             Event[] events = eventDao.readAllEvents(authToken);
 
             if(events == null) {
-                return new MultipleEventsResponse(new FMSError(FMSResponse.INTERNAL_SERVER_ERROR));
+                db.closeConnection(false);
+                return new MultipleEventsResponse(new FMSError(
+                    MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             response = new MultipleEventsResponse(FMSResponse.GENERAL_SUCCESS_MESSAGE, events);
-            if(response != null) {
+            if(response != null && response.getError() == null) {
                 db.closeConnection(true);
             } else {
                 db.closeConnection(false);
             }
         } catch(DataAccessException e) {
-            return new MultipleEventsResponse(new FMSError(FMSResponse.INTERNAL_SERVER_ERROR));
+            return new MultipleEventsResponse(new FMSError(
+                FMSResponse.INTERNAL_SERVER_ERROR),
+                HttpURLConnection.HTTP_BAD_REQUEST
+            );
         }
         return response;
     }

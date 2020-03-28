@@ -4,7 +4,6 @@ import Helpers.DataAccessException;
 import Models.AuthToken;
 import Models.Person;
 
-import javax.swing.plaf.nimbus.State;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
@@ -31,6 +30,9 @@ public class PersonDao {
      * @throws DataAccessException
      */
     public void insert(Person person) throws DataAccessException {
+        if (!person.requiredFieldsAreNotNull())
+            throw new DataAccessException(DataAccessException.FIELD_WAS_NULL);
+
         String sql = "INSERT INTO person (person_id, associated_userName, first_name, last_name, gender, " +
                 "father_id, mother_id, spouse_id) VALUES(?,?,?,?,?,?,?,?)";
 
@@ -40,9 +42,9 @@ public class PersonDao {
             stmt.setString(3, person.getFirstName());
             stmt.setString(4, person.getLastName());
             stmt.setString(5, person.getGender());
-            stmt.setString(6, person.getFatherId());
-            stmt.setString(7, person.getMotherId());
-            stmt.setString(8, person.getSpouseId());
+            stmt.setString(6, person.getFatherID());
+            stmt.setString(7, person.getMotherID());
+            stmt.setString(8, person.getSpouseID());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -105,11 +107,11 @@ public class PersonDao {
             throw new DataAccessException("Error. authToken was null when attempting to read one authToken");
 
         List<Person> personList = new ArrayList<Person>();
+        String sql = "SELECT * FROM person WHERE associated_userName = ?";
 
-        try(
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM person")
-        ) {
+        try(PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, authToken.getUserName());
+            ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
                 personList.add(new Person(
                     rs.getString("person_id"),

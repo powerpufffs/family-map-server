@@ -3,7 +3,6 @@ package Responses;
 import Helpers.FMSError;
 import Models.Event;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +36,8 @@ public class MultipleEventsResponse extends FMSResponse {
         super(error);
         this.data = null;
     }
+    public MultipleEventsResponse(FMSError error, int code) { super(error, code); }
+
 
     public void setData(List<SingleEventResponse> data) {
         this.data = data;

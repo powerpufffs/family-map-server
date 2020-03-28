@@ -1,9 +1,12 @@
 package Models;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * A Class that defines the attributes and methods of a User.
  */
-public class User {
+public class User extends FMSModel {
     private String userName;
     private String password;
     private String email;
@@ -40,7 +43,6 @@ public class User {
         this.personID = personID;
     }
 
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -61,6 +63,20 @@ public class User {
         }
         return false;
     }
+
+    @Override
+    public boolean requiredFieldsAreNotNull() {
+        List<Object> list = Arrays.asList(
+            this.userName,
+            this.password,
+            this.email,
+            this.firstName,
+            this.lastName,
+            this.gender,
+            this.personID
+        );
+        return super.allAreNotNull(list);
+    };
 
     public void setUserName(String userName) {
         this.userName = userName;

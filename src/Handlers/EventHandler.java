@@ -3,22 +3,21 @@ package Handlers;
 import Helpers.RequestMethod;
 import Requests.EventRequest;
 import Responses.FMSResponse;
-import Responses.MultipleEventsResponse;
 import Services.EventService;
+
 import com.google.gson.JsonParseException;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
 
-public class EventHandler extends FMSHandler2 {
+public class EventHandler extends FMSHandler {
     @Override
     public FMSResponse handleRequest(HttpExchange exchange) throws IOException, JsonParseException {
         String[] endpoints = exchange.getRequestURI().toString().split("/");
         String token = getAuthToken(exchange);
 
         if(endpoints.length == 3) {
-            return EventService.getSingleEvent(new Requests.EventRequest(
+            return EventService.getSingleEvent(new EventRequest(
                 endpoints[2],
                 token
             ));

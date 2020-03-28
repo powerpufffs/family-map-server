@@ -3,41 +3,33 @@ package Responses;
 import Helpers.FMSError;
 
 /**
- * A Class detailing the attributes and methods of a FillResponse
+ * A Class detailing the attributes and methods of a FillResponse.
  */
-public class FillResponse {
+public class FillResponse extends FMSResponse {
 
-    private String message;
-    private FMSError error;
+    public static String INVALID_USER_OR_GENERATIONS_ERROR = "Invalid userName " +
+            "or generations parameter";
 
     /**
      * Constructs an error FillResponse
-     * @param error error sent when filling was unsuccessful.
+     * @param error an FMSError object
      */
     public FillResponse(FMSError error) {
-        this.error = error;
+        super(null, error);
+    }
+    public FillResponse(FMSError error, int code) {
+        super(error, code);
     }
 
     /**
-     * Constructs a success FillResponse
-     * @param message sent when filling was successful.
+     * Constructs a success FillResponse.
+     * @param personsCreated the number of people that were created.
+     * @param eventsCreated the number of events that were created.
      */
-    public FillResponse(String message) {
-        this.message = message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-    public void setError(FMSError error) {
-        this.error = error;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-    public FMSError getError() {
-        return error;
+    public FillResponse(int personsCreated, int eventsCreated) {
+        super("Successfully added " +
+                personsCreated + " persons and " +
+                eventsCreated + " events to the database.", null);
     }
 
 }

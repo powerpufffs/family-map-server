@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.*;
 
 import Handlers.*;
-import Models.Person;
 import com.sun.net.httpserver.*;
 
 /*
@@ -27,11 +26,11 @@ public class Server {
     private static final int MAX_WAITING_CONNECTIONS = 12;
 
     // Java provides an HttpServer class that can be used to embed
-    // an HTTP server in any Java program.
+    // an HTTP Dserver in any Java program.
     // Using the HttpServer class, you can easily make a Java
     // program that can receive incoming HTTP requests, and respond
     // with appropriate HTTP responses.
-    // HttpServer is the class that actually implements the HTTP network
+    // HttpServer is tDhe class that actually implements the HTTP network
     // protocol (be glad you don't have to).
     // The "server" field contains the HttpServer instance for this program,A
     // which is initialized in the "run" method below.
@@ -77,7 +76,7 @@ public class Server {
 
         server.createContext("/user/register", new RegisterHandler());
         server.createContext("/user/login", new LoginHandler());
-        server.createContext("/clear", new ClearHandler2());
+        server.createContext("/clear", new ClearHandler());
         server.createContext("/fill", new FillHandler());
         server.createContext("/load", new LoadHandler());
         server.createContext("/event", new EventHandler());

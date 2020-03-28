@@ -1,5 +1,6 @@
 package Responses;
 
+
 import Helpers.FMSError;
 import Models.Person;
 
@@ -31,9 +32,9 @@ public class SinglePersonResponse extends FMSResponse {
         this.firstName = person.getFirstName();
         this.lastName = person.getLastName();
         this.gender = person.getGender();
-        this.fatherID = person.getFatherId();
-        this.motherID = person.getMotherId();
-        this.spouseID = person.getSpouseId();
+        this.fatherID = person.getFatherID();
+        this.motherID = person.getMotherID();
+        this.spouseID = person.getSpouseID();
     }
 
     public String getId() {

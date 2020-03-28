@@ -48,10 +48,10 @@ public class EventDaoTest {
             Connection connection = db.openConnection();
             EventDao eventDao = new EventDao(connection);
             eventDao.insert(event);
-            compareEvent = eventDao.readOneEvent(event.getEventId());
+            compareEvent = eventDao.readOneEvent(event.getEventID());
 
             assertNotNull(compareEvent);
-            assertEquals(event.getEventId(), compareEvent.getEventId());
+            assertEquals(event.getEventID(), compareEvent.getEventID());
 
             db.closeConnection(true);
             tearDown();
@@ -99,12 +99,12 @@ public class EventDaoTest {
             EventDao eventDao = new EventDao(connection);
 
             eventDao.insert(event);
-            compareEvent = eventDao.readOneEvent(event.getEventId());
+            compareEvent = eventDao.readOneEvent(event.getEventID());
             assertNotNull(compareEvent);
 
-            compareEvent.setEventId("somethingElse");
+            compareEvent.setEventID("somethingElse");
             eventDao.insert(compareEvent);
-            assertNotNull(eventDao.readOneEvent(compareEvent.getEventId()));
+            assertNotNull(eventDao.readOneEvent(compareEvent.getEventID()));
 
             db.closeConnection(true);
             tearDown();
@@ -127,7 +127,7 @@ public class EventDaoTest {
             eventDao.insert(event);
             eventDao.deleteAllEvents();
 
-            compareEvent = eventDao.readOneEvent(event.getEventId());
+            compareEvent = eventDao.readOneEvent(event.getEventID());
             assertNull(compareEvent);
             db.closeConnection(true);
             tearDown();
@@ -147,12 +147,12 @@ public class EventDaoTest {
             EventDao eventDao = new EventDao(connection);
 
             eventDao.insert(event);
-            compareEvent = eventDao.readOneEvent(event.getEventId());
+            compareEvent = eventDao.readOneEvent(event.getEventID());
             assertNotNull(compareEvent);
 
-            compareEvent.setEventId("somethingElse");
+            compareEvent.setEventID("somethingElse");
             eventDao.insert(compareEvent);
-            assertNotNull(eventDao.readOneEvent(compareEvent.getEventId()));
+            assertNotNull(eventDao.readOneEvent(compareEvent.getEventID()));
 
             db.closeConnection(true);
             tearDown();
@@ -175,7 +175,7 @@ public class EventDaoTest {
             eventDao.insert(event);
             eventDao.deleteAllEvents();
 
-            compareEvent = eventDao.readOneEvent(event.getEventId());
+            compareEvent = eventDao.readOneEvent(event.getEventID());
             assertNull(compareEvent);
             db.closeConnection(true);
             tearDown();
@@ -207,13 +207,13 @@ public class EventDaoTest {
             //Insert users then delete table
             eventDao.insert(event);
             eventDao.insert(secondEvent);
-            assertNotNull(eventDao.readOneEvent(event.getEventId()));
-            assertNotNull(eventDao.readOneEvent(secondEvent.getEventId()));
+            assertNotNull(eventDao.readOneEvent(event.getEventID()));
+            assertNotNull(eventDao.readOneEvent(secondEvent.getEventID()));
             eventDao.deleteAllEvents();
 
             //Check that both persons no longer exist
-            assertNull(eventDao.readOneEvent(event.getEventId()));
-            assertNull(eventDao.readOneEvent(secondEvent.getEventId()));
+            assertNull(eventDao.readOneEvent(event.getEventID()));
+            assertNull(eventDao.readOneEvent(secondEvent.getEventID()));
             db.closeConnection(true);
             tearDown();
         } catch(DataAccessException e) {
@@ -243,15 +243,15 @@ public class EventDaoTest {
            //Insert users then delete table
            eventDao.insert(event);
            eventDao.insert(secondEvent);
-           assertNotNull(eventDao.readOneEvent(event.getEventId()));
-           assertNotNull(eventDao.readOneEvent(secondEvent.getEventId()));
+           assertNotNull(eventDao.readOneEvent(event.getEventID()));
+           assertNotNull(eventDao.readOneEvent(secondEvent.getEventID()));
            eventDao.deleteAllEventsForUser(event.getAssociatedUsername());
 
            //Check that event for persons no longer exist
-           assertNull(eventDao.readOneEvent(event.getEventId()));
+           assertNull(eventDao.readOneEvent(event.getEventID()));
 
            //Check that other event is still in the db
-           assertNotNull(eventDao.readOneEvent(secondEvent.getEventId()));
+           assertNotNull(eventDao.readOneEvent(secondEvent.getEventID()));
            db.closeConnection(true);
            tearDown();
        } catch(DataAccessException e) {

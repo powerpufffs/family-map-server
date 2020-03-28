@@ -90,7 +90,7 @@ public class ClearServiceTest {
         assertNotNull(userDao.readOneUser(user.getUserName()));
         assertNotNull(personDao.readOnePersons(person.getPersonId()));
         assertNotNull(authTokenDao.readAuthToken(authToken.getTokenId()));
-        assertNotNull(eventDao.readOneEvent(event.getEventId()));
+        assertNotNull(eventDao.readOneEvent(event.getEventID()));
 
         db.closeConnection(true);
 
@@ -101,7 +101,7 @@ public class ClearServiceTest {
         assertThrows(DataAccessException.class, () -> {userDao.readOneUser(user.getUserName());});
         assertThrows(DataAccessException.class, () -> {personDao.readOnePersons(person.getPersonId());});
         assertThrows(DataAccessException.class, () -> {authTokenDao.readAuthToken(authToken.getTokenId());});
-        assertThrows(DataAccessException.class, () -> {eventDao.readOneEvent(event.getEventId());});
+        assertThrows(DataAccessException.class, () -> {eventDao.readOneEvent(event.getEventID());});
 
         db.closeConnection(true);
     }
@@ -124,10 +124,9 @@ public class ClearServiceTest {
         assertNotNull(userDao.readOneUser(user.getUserName()));
         assertNotNull(personDao.readOnePersons(person.getPersonId()));
         assertNotNull(authTokenDao.readAuthToken(authToken.getTokenId()));
-        assertNotNull(eventDao.readOneEvent(event.getEventId()));
+        assertNotNull(eventDao.readOneEvent(event.getEventID()));
 
         db.closeConnection(true);
         ClearResponse response = ClearService.clear();
-        System.out.println(response.toString());
     }
 }

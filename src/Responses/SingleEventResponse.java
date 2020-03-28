@@ -9,7 +9,7 @@ public class SingleEventResponse extends FMSResponse {
     public static final String INVALID_EVENT_ID = "Invalid eventID parameter";
     public static final String REQUESTED_EVENT_DOESNT_BELONG_TO_USER = "Requested event does not belong to this user";
 
-    private String eventId;
+    private String eventID;
     private String associatedUsername;
     private String personID;
     private float latitude;
@@ -27,6 +27,7 @@ public class SingleEventResponse extends FMSResponse {
     public SingleEventResponse(FMSError error) {
         super(null, error);
     }
+    public SingleEventResponse(FMSError error, int code) { super(error, code); }
 
     /**
      * Creates a SingleEventResponse.
@@ -34,13 +35,12 @@ public class SingleEventResponse extends FMSResponse {
      * @param event the retrieved Event
      */
     public SingleEventResponse(String message, Event event) {
-        super(message, null);
-
+        super(null, null);
         if(event == null) {
             return;
         }
 
-        this.eventId = event.getEventId();
+        this.eventID = event.getEventID();
         this.associatedUsername = event.getAssociatedUsername();
         this.personID = event.getPersonId();
         this.latitude = event.getLatitude();
@@ -52,10 +52,10 @@ public class SingleEventResponse extends FMSResponse {
     }
 
     public String getId() {
-        return eventId;
+        return eventID;
     }
     public void setId(String id) {
-        this.eventId = id;
+        this.eventID = id;
     }
     public String getAssociatedUsername() {
         return associatedUsername;
@@ -106,8 +106,8 @@ public class SingleEventResponse extends FMSResponse {
         this.year = year;
     }
 
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    public void setEventID(String eventID) {
+        this.eventID = eventID;
     }
 
     public void setPersonID(String personID) {
@@ -118,8 +118,8 @@ public class SingleEventResponse extends FMSResponse {
         this.eventType = eventType;
     }
 
-    public String getEventId() {
-        return eventId;
+    public String getEventID() {
+        return eventID;
     }
 
     public String getPersonID() {

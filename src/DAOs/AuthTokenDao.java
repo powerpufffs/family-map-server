@@ -2,10 +2,8 @@ package DAOs;
 
 import Helpers.DataAccessException;
 import Models.AuthToken;
-import Models.User;
 
 import java.sql.*;
-import java.util.UUID;
 
 /**
  * A Class that defines the properties and methods of an AuthTokenDao.

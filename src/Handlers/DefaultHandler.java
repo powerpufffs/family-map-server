@@ -1,11 +1,8 @@
 package Handlers;
 
 import Helpers.RequestMethod;
-import Responses.ClearResponse;
 import Responses.FMSResponse;
-import Services.ClearService;
 import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +10,9 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.nio.file.Files;
 
-public class DefaultHandler extends FMSHandler2 {
+public class DefaultHandler extends FMSHandler {
+    private final static String ROOT_DIR = "web";
+
     // Override base class because it sends back an html file and not JSON
     @Override
     public void handle(HttpExchange exchange) throws IOException {
@@ -25,16 +24,16 @@ public class DefaultHandler extends FMSHandler2 {
             );
             return;
         }
-        if (!isValidEndpoint(exchange.getRequestURI().toString())) {
-            super.sendResponseWithMessage(
-                exchange,
-                HttpURLConnection.HTTP_NOT_FOUND,
-      "Invalid endpoint."
-            );
-            return;
-        }
-        String filePath = "web" + "/index.html";
-        File page = new File(filePath);
+//        if (!isValidEndpoint(exchange.getRequestURI().toString())) {
+//            super.sendResponseWithMessage(
+//                exchange,
+//                HttpURLConnection.HTTP_NOT_FOUND,
+//      "Invalid endpoint."
+//            );
+//            return;
+//        }
+
+        File page = getFile(exchange.getRequestURI().toString());
         OutputStream resBody = exchange.getResponseBody();
 
         if(page.exists()) {
@@ -49,7 +48,6 @@ public class DefaultHandler extends FMSHandler2 {
             exchange.getResponseBody().flush();
             exchange.getResponseBody().close();
         }
-        return;
     }
 
     @Override
@@ -64,11 +62,18 @@ public class DefaultHandler extends FMSHandler2 {
 
     @Override
     public boolean isValidEndpoint(String endpoint) {
-        return endpoint.equals("/");
+        return getFile(endpoint).exists();
     }
 
     @Override
     public boolean requiresAuth() {
         return false;
+    }
+
+    private File getFile(String path) {
+        if (path.equals("/")) {
+            path = "/index.html";
+        }
+        return new File(ROOT_DIR + path);
     }
 }

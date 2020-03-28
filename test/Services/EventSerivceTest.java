@@ -11,12 +11,13 @@ import Models.Event;
 import Models.Person;
 import Models.User;
 import Requests.EventRequest;
+import Responses.MultipleEventsResponse;
 import Responses.SingleEventResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.xml.crypto.Data;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -85,11 +86,11 @@ public class EventSerivceTest {
         typicalSetup();
 
         SingleEventResponse response = EventService.getSingleEvent(new EventRequest(
-            event.getEventId(),
+            event.getEventID(),
             authToken.getTokenId()
         ));
 
-        assertEquals(response.getEventId(), event.getEventId());
+        assertEquals(response.getEventID(), event.getEventID());
         assertEquals(response.getAssociatedUsername(), event.getAssociatedUsername());
         assertEquals(response.getPersonId(), event.getPersonId());
         assertEquals(response.getLatitude(), event.getLatitude());
@@ -107,13 +108,12 @@ public class EventSerivceTest {
                 "wrongId",
                 authToken.getTokenId()
         ));
-        assertEquals(response.getError().getMessage(), SingleEventResponse.INVALID_EVENT_ID);
+        assertEquals(SingleEventResponse.INVALID_EVENT_ID, response.getError().getMessage());
     }
 
     @Test
     public void getSingleEventUnauthenticated() throws DataAccessException {
         typicalSetup();
-        System.out.println("nihao");
         db.openConnection();
         AuthToken anotherAuth = new AuthToken(
             "secondToken",
@@ -121,14 +121,106 @@ public class EventSerivceTest {
             "randomUserName"
         );
         AuthTokenDao authTokenDao = new AuthTokenDao(db.getConnection());
-        authTokenDao.insertAuthToken(authToken);
+        authTokenDao.insertAuthToken(anotherAuth);
         db.closeConnection(true);
 
-//        SingleEventResponse response = EventService.getSingleEvent(new EventRequest(
-//                event.getEventId(),
-//                anotherAuth.getTokenId()
-//        ));
-//        assertEquals(response.getError().getMessage(), SingleEventResponse.REQUESTED_EVENT_DOESNT_BELONG_TO_USER);
+        SingleEventResponse response = EventService.getSingleEvent(new EventRequest(
+                event.getEventID(),
+                anotherAuth.getTokenId()
+        ));
+        assertEquals(SingleEventResponse.REQUESTED_EVENT_DOESNT_BELONG_TO_USER, response.getError().getMessage());
     }
 
+    // Multiple Events
+    @Test
+    public void getMultipleEventsPositive() throws DataAccessException {
+        typicalSetup();
+        Event baptism = new Event(
+                "baptismId",
+                user.getUserName(),
+                user.getPersonId(),
+                1.04f,
+                1.05f,
+                "Hong Kong",
+                "North Point",
+                "marriage",
+                2000
+        );
+        Event death = new Event(
+                "deathId",
+                user.getUserName(),
+                user.getPersonId(),
+                1.10f,
+                1.25f,
+                "Hong Kong",
+                "North Point",
+                "marriage",
+                2010
+        );
+        //This event does not belong to user.
+        Event death2 = new Event(
+                "deathId2",
+                "someoneElse",
+                "someoneElse",
+                1.10f,
+                1.25f,
+                "Hong Kong",
+                "North Point",
+                "marriage",
+                2010
+        );
+        db.openConnection();
+        EventDao eventDao = new EventDao(db.getConnection());
+        eventDao.insert(baptism);
+        eventDao.insert(death);
+        eventDao.insert(death2);
+        db.closeConnection(true);
+
+        MultipleEventsResponse response = EventService.getAllEvents(new EventRequest(
+            "",
+            authToken.getTokenId()
+        ));
+        List<SingleEventResponse> responses = response.getData();
+
+        assertTrue(responses.size() == 3);
+    }
+
+    @Test
+    public void getMultipleEventsInvalidAuth() throws DataAccessException {
+        typicalSetup();
+        Event baptism = new Event(
+                "baptismId",
+                user.getUserName(),
+                user.getPersonId(),
+                1.04f,
+                1.05f,
+                "Hong Kong",
+                "North Point",
+                "marriage",
+                2000
+        );
+        Event death = new Event(
+                "deathId",
+                user.getUserName(),
+                user.getPersonId(),
+                1.10f,
+                1.25f,
+                "Hong Kong",
+                "North Point",
+                "marriage",
+                2010
+        );
+        db.openConnection();
+        EventDao eventDao = new EventDao(db.getConnection());
+        eventDao.insert(baptism);
+        eventDao.insert(death);
+        db.closeConnection(true);
+
+        MultipleEventsResponse response = EventService.getAllEvents(new EventRequest(
+                "",
+                "wrongToken"
+        ));
+
+        assertEquals(MultipleEventsResponse.INVALID_AUTH_TOKEN_ERROR, response.getError().getMessage());
+    }
 }

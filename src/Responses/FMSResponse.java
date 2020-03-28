@@ -19,7 +19,8 @@ public class FMSResponse {
 
     private String message;
     private FMSError error;
-    private int code = 0;
+    private Boolean success;
+    private transient int code = 0;
 
     /**
      * Constructs an error FMSResponse
@@ -29,11 +30,13 @@ public class FMSResponse {
         this.message = null;
         this.error = error;
         this.code = code;
+//        this.success = false;
     }
 
     public FMSResponse(FMSError error) {
         this.message = null;
         this.error = error;
+//        this.success = false;
     }
 
     /**
@@ -44,6 +47,7 @@ public class FMSResponse {
     public FMSResponse(String message, FMSError error) {
         this.message = message;
         this.error = error;
+        this.success = true;
     }
 
     public String getMessage() {
@@ -64,6 +68,7 @@ public class FMSResponse {
     public int getCode() {
         return code;
     }
+    public void setCode(int coee) { this.code = code;}
 
     /**
      * Checks to see if any value in a list is null

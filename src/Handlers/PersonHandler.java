@@ -1,20 +1,15 @@
 package Handlers;
 
 import Helpers.RequestMethod;
-import Models.Person;
 import Requests.PersonRequest;
 import Responses.FMSResponse;
-import Responses.MultipleEventsResponse;
-import Responses.MultiplePersonsResponse;
 import Services.PersonService;
-import com.google.gson.JsonParseException;
+
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 
-public class PersonHandler extends FMSHandler2 {
+public class PersonHandler extends FMSHandler {
     @Override
     public FMSResponse handleRequest(HttpExchange exchange) throws IOException {
         String[] endpoints = exchange.getRequestURI().toString().split("/");

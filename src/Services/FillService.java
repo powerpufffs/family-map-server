@@ -8,7 +8,9 @@ import Models.Event;
 import Models.Person;
 import Models.User;
 import Requests.FillRequest;
+import Responses.FillResponse;
 
+import java.net.HttpURLConnection;
 import java.util.*;
 
 /**
@@ -22,38 +24,39 @@ public class FillService {
     private static final int MAX_BIRTH_GIVING_AGE = 50;
     private static final int CURRENT_YEAR = Calendar.getInstance().get(Calendar.YEAR);
 
-    /**
-     * Populates the database with X number of generated data.
-     * @param request a FillRequest containing the user for which the generations will be generated
-     *                and the number of generations to generate.
-     * @return a FillResponse
-     */
     public static FillResponse fill(FillRequest request) {
         Database db = new Database();
         User user = null;
-        FillResponse response = null;
 
         try {
-            System.out.println("Begin Filling");
             db.openConnection();
             UserDao userDao = new UserDao(db.getConnection());
             user = userDao.readOneUser(request.getUserName());
 
             if(user == null) {
-                db.closeConnection(true);
-                return new FillResponse(new FMSError(FillResponse.INVALID_USER_OR_GENERATIONS_ERROR));
+                db.closeConnection(false);
+                return new FillResponse(new FMSError(
+                    FillResponse.INVALID_USER_OR_GENERATIONS_ERROR),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
             if(request.getGenerations() < 0) {
-                db.closeConnection(true);
-                return new FillResponse(new FMSError(FillResponse.INVALID_REQUEST_DATA_ERROR));
+                db.closeConnection(false);
+                return new FillResponse(new FMSError(
+                    FillResponse.INVALID_USER_OR_GENERATIONS_ERROR),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             PersonDao personDao = new PersonDao(db.getConnection());
             Person person = personDao.readOnePersons(user.getPersonId());
 
             if(person == null) {
-                db.closeConnection(true);
-                return new FillResponse(new FMSError(FillResponse.INTERNAL_SERVER_ERROR));
+                db.closeConnection(false);
+                return new FillResponse(new FMSError(
+                    FillResponse.INTERNAL_SERVER_ERROR),
+                    HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             // create events
@@ -83,10 +86,10 @@ public class FillService {
                 eventDao.insert(event);
             }
 
+            // Sort through generated objects and insert into db
             for(Object object: ancestorData) {
                 if(object instanceof Event) {
                     eventsCreated++;
-                    System.out.println(eventsCreated);
                     eventDao.insert((Event) object);
                 } else if(object instanceof Person) {
                     personsCreated++;
@@ -94,30 +97,20 @@ public class FillService {
                 }
             }
 
-            System.out.println("End Filling");
             db.closeConnection(true);
             return new FillResponse(personsCreated, eventsCreated);
         } catch(DataAccessException e) {
-            return new FillResponse(new FMSError(FillResponse.INTERNAL_SERVER_ERROR));
+            return new FillResponse(new FMSError(
+                FillResponse.INTERNAL_SERVER_ERROR),
+                HttpURLConnection.HTTP_INTERNAL_ERROR
+            );
         }
     }
 
-    /**
-     * Calculates a realistic birth year for a person based on his/her year of marriage.
-     * @param marriageYear the person's year of marriage
-     * @return an appropriate birth year for the person
-     */
     private static int calculateBirthYear(int marriageYear) {
         return marriageYear - ADULT_AGE - random.nextInt(10);
     }
 
-    /**
-     * Generates ancestral data recursively.
-     * @param person the person to which the generated data will be associated with
-     * @param personBirthYear the birth year of the person.
-     * @param generations the number of generations to continue to generate data for.
-     * @return a Collection of Objects
-     */
     private static Collection<Object> generateAncestorData(Person person, int personBirthYear, int generations) {
         Collection<Object> generatedData = new ArrayList<>();
 
@@ -132,11 +125,11 @@ public class FillService {
         Person momPerson = generatePerson(person.getAssociatedUsername(), "f",
                 null);
 
-        dadPerson.setSpouseId(momPerson.getPersonId());
-        momPerson.setSpouseId(dadPerson.getPersonId());
+        dadPerson.setSpouseID(momPerson.getPersonId());
+        momPerson.setSpouseID(dadPerson.getPersonId());
 
-        person.setFatherId(dadPerson.getPersonId());
-        person.setMotherId(momPerson.getPersonId());
+        person.setFatherID(dadPerson.getPersonId());
+        person.setMotherID(momPerson.getPersonId());
 
         generatedData.add(dadPerson);
         generatedData.add(momPerson);
@@ -171,13 +164,6 @@ public class FillService {
         return generatedData;
     }
 
-    /**
-     * Generates a new Person.
-     * @param associatedUserName the username that will be associated for the Person
-     * @param gender the gender to be assigned to the Person
-     * @param lastName the lastname to be assigned to the Person
-     * @return the generated Person
-     */
     private static Person generatePerson(String associatedUserName, String gender,
                                          String lastName) {
         return new Person(
@@ -196,13 +182,6 @@ public class FillService {
         );
     }
 
-    /**
-     * Creates all other types of events (birth, baptism, graduation) for a person.
-     * @param person the person for which the events will be created for
-     * @param birthYear the birth year of the person
-     * @param minDeathYear a reasonable year by which this person should be dead by
-     * @return a Collection of Events
-     */
     private static Collection<Event> createOtherEvents(Person person, int birthYear, int minDeathYear) {
         Collection<Event> events = new ArrayList<>();
 
@@ -216,23 +195,16 @@ public class FillService {
         events.add(graduation);
 
         if (minDeathYear <= CURRENT_YEAR) {
-            Event death = createDeathEvent(person, minDeathYear);
-
-            if (death.getYear() <= CURRENT_YEAR) {
-                events.add(death);
-            }
+            Event death;
+            do {
+                death = createDeathEvent(person, minDeathYear);
+                System.out.println(death.getYear() - birthYear);
+            } while (death.getYear() >= CURRENT_YEAR || death.getYear() - birthYear >= 120);
+            events.add(death);
         }
-
         return events;
     }
 
-    /**
-     * Creates a marriage event.
-     * @param husband the Person representing the husband in this event
-     * @param wife the Person representing the wife in this event
-     * @param maxYear the
-     * @return the created Event
-     */
     private static Event createMarriageEvent(Person husband, Person wife, int maxYear) {
         LocationGenerator.Location location = LocationGenerator.randomLocation();
         return new Event(
@@ -248,12 +220,6 @@ public class FillService {
         );
     }
 
-    /**
-     * Creates a birth event.
-     * @param person the person associated with the event
-     * @param year the year of the event
-     * @return created Event
-     */
     private static Event createBirthEvent(Person person, int year) {
         LocationGenerator.Location location = LocationGenerator.randomLocation();
         return new Event(
@@ -269,11 +235,6 @@ public class FillService {
         );
     }
 
-    /**
-     * Creates a death event.
-     * @param person the person associated with the event
-     * @param minYear a reasonable year by which this person should be dead by
-     */
     private static Event createDeathEvent(Person person, int minYear) {
         LocationGenerator.Location location = LocationGenerator.randomLocation();
         return new Event(
@@ -289,13 +250,6 @@ public class FillService {
         );
     }
 
-    /**
-     * Creates a baptism event.
-     * @param person the Person representing the husband in this event
-     * @param minYear the minimum age required before a Person can participate in a baptism
-     * @param maxYear a reasonable maximum age by which a Person should be baptized by
-     * @return created Event
-     */
     private static Event createBaptism(Person person, int minYear, int maxYear) {
         LocationGenerator.Location location = LocationGenerator.randomLocation();
         return new Event(
@@ -311,12 +265,6 @@ public class FillService {
         );
     }
 
-    /**
-     * Creates a graduation event.
-     * @param person the Person representing the husband in this event
-     * @param birthYear the year in which the Person was born
-     * @return Event
-     */
     private static Event createGraduationEvent(Person person, int birthYear) {
         LocationGenerator.Location location = LocationGenerator.randomLocation();
         return new Event(

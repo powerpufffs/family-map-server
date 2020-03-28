@@ -26,6 +26,9 @@ public class UserDao {
      * @throws DataAccessException
      */
     public void insert(User user) throws DataAccessException {
+        if (!user.requiredFieldsAreNotNull())
+            throw new DataAccessException(DataAccessException.FIELD_WAS_NULL);
+
         String sql = "INSERT INTO user (userName, password, email, first_name, "
             + "last_name, gender, person_id) VALUES(?, ?, ?, ?, ?, ?, ?)";
 

@@ -1,13 +1,15 @@
 package Models;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 /**
  * A Class that defines the attributes and methods of an Event.
  */
-public class Event {
+public class Event extends FMSModel {
 
-    private String eventId;
+    private String eventID;
     private String associatedUsername;
     private String personID;
     private float latitude;
@@ -19,7 +21,7 @@ public class Event {
 
     /**
      * A constructor that creates an Event.
-     * @param eventId a unique identifier for an Event.
+     * @param eventID a unique identifier for an Event.
      * @param associatedUsername the associated username for this Event.
      * @param personID the id of the Person that is associated to this Event.
      * @param latitude the latitude of the coordinate representing the location of the Event.
@@ -29,8 +31,8 @@ public class Event {
      * @param eventType the type of the Event.
      * @param year the year in which the Event occurred.
      */
-    public Event(String eventId, String associatedUsername, String personID, float latitude, float longitude, String country, String city, String eventType, int year) {
-        this.eventId = eventId;
+    public Event(String eventID, String associatedUsername, String personID, float latitude, float longitude, String country, String city, String eventType, int year) {
+        this.eventID = eventID;
         this.associatedUsername = associatedUsername;
         this.personID = personID;
         this.latitude = latitude;
@@ -59,8 +61,24 @@ public class Event {
         );
     }
 
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    @Override
+    public boolean requiredFieldsAreNotNull() {
+        List<Object> list = Arrays.asList(
+            this.eventID,
+            this.associatedUsername,
+            this.personID,
+            this.latitude,
+            this.longitude,
+            this.country,
+            this.city,
+            this.eventType,
+            this.year
+        );
+        return super.allAreNotNull(list);
+    };
+
+    public void setEventID(String eventID) {
+        this.eventID = eventID;
     }
     public void setAssociatedUsername(String associatedUsername) {
         this.associatedUsername = associatedUsername;
@@ -87,8 +105,8 @@ public class Event {
         this.year = year;
     }
 
-    public String getEventId() {
-        return eventId;
+    public String getEventID() {
+        return eventID;
     }
     public String getAssociatedUsername() {
         return associatedUsername;

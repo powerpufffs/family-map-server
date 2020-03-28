@@ -1,19 +1,20 @@
 package Models;
 
-import java.util.UUID;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A Class that defines the attributes and methods of a Person.
  */
-public class Person {
+public class Person extends FMSModel {
     private String personID;
     private String associatedUsername;
     private String firstName;
     private String lastName;
     private String gender;
-    private String fatherId = null;
-    private String motherId = null;
-    private String spouseId = null;
+    private String fatherID = null;
+    private String motherID = null;
+    private String spouseID = null;
 
     /**
      * A constructor that creates a Person.
@@ -22,9 +23,9 @@ public class Person {
      * @param firstName the first name of the Person.
      * @param lastName the last name of the Person.
      * @param gender the gender of the Person.
-     * @param fatherId the unique identifier belonging to the father of the Person.
-     * @param motherId the unique identifier belonging to the father of the Person.
-     * @param spouseId the unique identifier belonging to the spouse of the Person.
+     * @param fatherID the unique identifier belonging to the father of the Person.
+     * @param motherID the unique identifier belonging to the father of the Person.
+     * @param spouseID the unique identifier belonging to the spouse of the Person.
      */
     public Person(
         String personID,
@@ -32,18 +33,18 @@ public class Person {
         String firstName,
         String lastName,
         String gender,
-        String fatherId,
-        String motherId,
-        String spouseId
+        String fatherID,
+        String motherID,
+        String spouseID
     ) {
         this.personID = personID;
         this.associatedUsername = associatedUsername;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
-        this.fatherId = fatherId;
-        this.motherId = motherId;
-        this.spouseId = spouseId;
+        this.fatherID = fatherID;
+        this.motherID = motherID;
+        this.spouseID = spouseID;
     }
 
     //Create Person from a User object
@@ -54,6 +55,18 @@ public class Person {
         this.lastName = user.getLastName();
         this.gender = user.getGender();
     }
+
+    @Override
+    public boolean requiredFieldsAreNotNull() {
+        List<Object> list = Arrays.asList(
+            this.personID,
+            this.associatedUsername,
+            this.firstName,
+            this.lastName,
+            this.gender
+        );
+        return super.allAreNotNull(list);
+    };
 
     public void setPersonId(String personID) {
         this.personID = personID;
@@ -68,14 +81,14 @@ public class Person {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public void setFatherId(String fatherId) {
-        this.fatherId = fatherId;
+    public void setFatherID(String fatherID) {
+        this.fatherID = fatherID;
     }
-    public void setMotherId(String motherId) {
-        this.motherId = motherId;
+    public void setMotherID(String motherID) {
+        this.motherID = motherID;
     }
-    public void setSpouseId(String spouseId) {
-        this.spouseId = spouseId;
+    public void setSpouseID(String spouseID) {
+        this.spouseID = spouseID;
     }
 
     public String getPersonId() {
@@ -93,13 +106,13 @@ public class Person {
     public String getGender() {
         return gender;
     }
-    public String getFatherId() {
-        return fatherId;
+    public String getFatherID() {
+        return fatherID;
     }
-    public String getMotherId() {
-        return motherId;
+    public String getMotherID() {
+        return motherID;
     }
-    public String getSpouseId() {
-        return spouseId;
+    public String getSpouseID() {
+        return spouseID;
     }
 }

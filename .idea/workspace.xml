@@ -2,27 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86233ca5-d9bd-43c2-a84c-7309d1a624d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/Services/EventSerivceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/Services/RegisterServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/familymap.sqlite-journal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Helpers/LoadData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/FMSModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Services/FillServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Services/LoadServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Services/LoginServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Services/PersonServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maleNames.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/maleNames.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Handlers/ClearHandler2.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Handlers/ClearHandler2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Services/FillResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Services/FillResponse.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/familymap.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/familymap.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/AuthTokenDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/AuthTokenDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/EventDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/EventDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/PersonDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/DAOs/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/ClearHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/ClearHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/ClearHandler2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/DefaultHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/DefaultHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/EventHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FMSHandler2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FMSHandler2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FMSHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FMSHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FMSHandler2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FillHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/FillHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoadHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoadHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoginHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/LoginHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/PersonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/PersonHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/RegisterHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Handlers/RegisterHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/DataAccessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/DataAccessException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/Database.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator$Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator$Location.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator$Locations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator$Locations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/LocationGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/NameGenerator$Names.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/NameGenerator$Names.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/NameGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/NameGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Helpers/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/ListGamesHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/META-INF/FamilyMapServer.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/Event.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/EventRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/EventRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/LoadRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/LoadRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/LoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Requests/LoginRequest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FMSResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FMSResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FillResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/FillResponse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoadResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoadResponse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoginResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/LoginResponse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/MultipleEventsResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/MultipleEventsResponse.class" afterDir="false" />
@@ -31,24 +55,45 @@
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/SinglePersonResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Responses/SinglePersonResponse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/ClearService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/ClearService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/EventService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/EventService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/FillResponse.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/FillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/FillService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoadService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoadService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/LoginService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/PersonService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/RegisterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FamilyMapServer/Services/RegisterService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/EventDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/FamilyMapServer/DAOs/EventDaoTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/FamilyMapServer/Services/ClearServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/FamilyMapServer/Services/ClearServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FamilyMapServer/Services/EventSerivceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/FamilyMapServer/Services/EventSerivceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FamilyMapServer/Services/RegisterServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/FamilyMapServer/Services/RegisterServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAOs/AuthTokenDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/AuthTokenDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAOs/EventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/EventDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAOs/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/PersonDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAOs/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAOs/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/ClearHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/ClearHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/ClearHandler2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/DefaultHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DefaultHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handlers/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/EventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/FMSHandler2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FMSHandler2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/ExampleHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FMSHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FMSHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FMSHandler2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FillHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FillHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/LoadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/LoadHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/LoginHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handlers/PersonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/PersonHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/RegisterHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helpers/DataAccessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/DataAccessException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Helpers/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Helpers/LocationGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/LocationGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/NameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/NameGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Helpers/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/EventRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/EventRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/LoadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/LoadRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requests/PersonRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requests/PersonRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Responses/FMSResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/FMSResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Responses/FillResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/FillResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Responses/LoadResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/LoadResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Responses/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/LoginResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Responses/MultipleEventsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/MultipleEventsResponse.java" afterDir="false" />
@@ -57,12 +102,16 @@
       <change beforePath="$PROJECT_DIR$/src/Responses/SinglePersonResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Responses/SinglePersonResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/ClearService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/FillResponse.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/FillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/FillService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/LoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/LoadService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/LoginService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/PersonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/DAOs/EventDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/DAOs/EventDaoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Services/ClearServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Services/ClearServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Services/EventSerivceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Services/EventSerivceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Services/RegisterServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Services/RegisterServiceTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +167,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/FamilyMapServerStudent-master" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -126,13 +176,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Responses" />
       <recent name="DAOs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$/lib" />
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/test/DAO" />
     </key>
   </component>
@@ -148,8 +199,30 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.EventSerivceTest.getSingleEventUnauthenticated">
-    <configuration name="ClearServiceTest.clearNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Helpers.Server" />
+      <module name="FamilyMapServer" />
+      <option name="PROGRAM_PARAMETERS" value="8080" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Helpers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in FamilyMapServer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FamilyMapServer" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoadServiceTest.loadFalseEvent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FamilyMapServer" />
       <extension name="coverage">
         <pattern>
@@ -158,14 +231,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Services" />
-      <option name="MAIN_CLASS_NAME" value="Services.ClearServiceTest" />
-      <option name="METHOD_NAME" value="clearNegative" />
+      <option name="MAIN_CLASS_NAME" value="Services.LoadServiceTest" />
+      <option name="METHOD_NAME" value="loadFalseEvent" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClearServiceTest.clearPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonServiceTest.getSinglePersonInvalidParams" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FamilyMapServer" />
       <extension name="coverage">
         <pattern>
@@ -174,14 +247,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Services" />
-      <option name="MAIN_CLASS_NAME" value="Services.ClearServiceTest" />
-      <option name="METHOD_NAME" value="clearPositive" />
+      <option name="MAIN_CLASS_NAME" value="Services.PersonServiceTest" />
+      <option name="METHOD_NAME" value="getSinglePersonInvalidParams" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EventSerivceTest.getSingleEventPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Services in FamilyMapServer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FamilyMapServer" />
       <extension name="coverage">
         <pattern>
@@ -190,59 +263,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Services" />
-      <option name="MAIN_CLASS_NAME" value="Services.EventSerivceTest" />
-      <option name="METHOD_NAME" value="getSingleEventPositive" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EventSerivceTest.getSingleEventUnauthenticated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FamilyMapServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Services" />
-      <option name="MAIN_CLASS_NAME" value="Services.EventSerivceTest" />
-      <option name="METHOD_NAME" value="getSingleEventUnauthenticated" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterServiceTest.registerFailsIfMissingParams" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FamilyMapServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Services" />
-      <option name="MAIN_CLASS_NAME" value="Services.RegisterServiceTest" />
-      <option name="METHOD_NAME" value="registerFailsIfMissingParams" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.RegisterServiceTest.registerFailsIfMissingParams" />
-      <item itemvalue="JUnit.ClearServiceTest.clearPositive" />
-      <item itemvalue="JUnit.ClearServiceTest.clearNegative" />
-      <item itemvalue="JUnit.EventSerivceTest.getSingleEventPositive" />
-      <item itemvalue="JUnit.EventSerivceTest.getSingleEventUnauthenticated" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="JUnit.Services in FamilyMapServer" />
+      <item itemvalue="JUnit.LoadServiceTest.loadFalseEvent" />
+      <item itemvalue="JUnit.PersonServiceTest.getSinglePersonInvalidParams" />
+      <item itemvalue="JUnit.All in FamilyMapServer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.EventSerivceTest.getSingleEventUnauthenticated" />
-        <item itemvalue="JUnit.EventSerivceTest.getSingleEventPositive" />
-        <item itemvalue="JUnit.ClearServiceTest.clearNegative" />
-        <item itemvalue="JUnit.ClearServiceTest.clearPositive" />
-        <item itemvalue="JUnit.RegisterServiceTest.registerFailsIfMissingParams" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.All in FamilyMapServer" />
+        <item itemvalue="JUnit.Services in FamilyMapServer" />
+        <item itemvalue="JUnit.PersonServiceTest.getSinglePersonInvalidParams" />
+        <item itemvalue="JUnit.LoadServiceTest.loadFalseEvent" />
       </list>
     </recent_temporary>
   </component>
@@ -279,6 +318,11 @@
       <workItem from="1583172737463" duration="6747000" />
       <workItem from="1583190590377" duration="7000" />
       <workItem from="1583435967821" duration="28112000" />
+      <workItem from="1583527421000" duration="4952000" />
+      <workItem from="1583602620678" duration="13892000" />
+      <workItem from="1583629958040" duration="12834000" />
+      <workItem from="1583943854113" duration="15000" />
+      <workItem from="1585356271941" duration="3616000" />
     </task>
     <servers />
   </component>
@@ -309,11 +353,16 @@
           <line>36</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Handlers/DefaultHandler.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/FamilyMapServer$Server.ic" NAME="Server Coverage Results" MODIFIED="1583175751755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/FamilyMapServer$Server.ic" NAME="Server Coverage Results" MODIFIED="1583731640114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Helpers.*</FILTER>
     </SUITE>
   </component>

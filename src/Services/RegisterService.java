@@ -1,20 +1,20 @@
 package Services;
 
-import DAOs.AuthTokenDao;
 import DAOs.PersonDao;
 import DAOs.UserDao;
 import Helpers.DataAccessException;
 import Helpers.Database;
 import Helpers.FMSError;
-import Models.AuthToken;
 import Models.Person;
 import Models.User;
 import Requests.FillRequest;
 import Requests.LoginRequest;
 import Requests.RegisterRequest;
 import Responses.FMSResponse;
+import Responses.FillResponse;
 import Responses.LoginResponse;
 
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -50,9 +50,11 @@ public class RegisterService {
             PersonDao personDao = new PersonDao(db.getConnection());
 
             if(userDao.readOneUser(request.getUserName()) != null) {
-                System.out.println("End Registering Due to Error");
                 db.closeConnection(true);
-                return new LoginResponse(new FMSError(LoginResponse.USER_ALREADY_EXISTS_ERROR));
+                return new LoginResponse(
+                        new FMSError(LoginResponse.USER_ALREADY_EXISTS_ERROR),
+                        HttpURLConnection.HTTP_BAD_REQUEST
+                );
             }
 
             User user = new User(

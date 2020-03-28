@@ -18,6 +18,7 @@ public class LoginResponse extends FMSResponse {
     public LoginResponse(FMSError error) {
         super(null, error);
     }
+    public LoginResponse(FMSError error, int code) { super(error, code); }
     public LoginResponse(String message, AuthToken token) {
         super(null, null);
         this.authToken = token.getTokenId();

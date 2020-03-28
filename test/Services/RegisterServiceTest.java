@@ -134,7 +134,7 @@ public class RegisterServiceTest {
             "f"
         ));
 
-        assertEquals(response2.getError().getMessage(), LoginResponse.USER_ALREADY_EXISTS_ERROR);
+        assertEquals(LoginResponse.USER_ALREADY_EXISTS_ERROR, response2.getError().getMessage());
     }
 
     @Test
@@ -148,7 +148,7 @@ public class RegisterServiceTest {
             "f"
         ));
 
-        assertEquals(response.getError().getMessage(), LoginResponse.INVALID_OR_MISSING_INPUT_ERROR);
+        assertEquals(LoginResponse.INVALID_OR_MISSING_INPUT_ERROR, response.getError().getMessage());
     }
 }
 
